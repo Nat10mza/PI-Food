@@ -1,11 +1,12 @@
 const { Router } = require("express");
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
+
+const { getRecipesApi, getAllRec } = require("../controllers/recipes");
 
 const router = Router();
 
 router.get("/", async (req, res) => {
-  res.json("hola");
+  const rec = await getAllRec();
+  res.status(200).send(rec);
 });
 
 module.exports = router;
