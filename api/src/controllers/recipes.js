@@ -1,11 +1,11 @@
 const axios = require("axios");
 const db = require("../db");
 const { Diet, Recipe } = require("../db");
-const API_KEY = "2636f9c9d6084ea8832b979e9a7ab117 ";
+const API_KEY = "bd7b30a9c45e41caa9515e18d602b56b";
 
 async function getRecipesApi() {
   const recipes = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=2636f9c9d6084ea8832b979e9a7ab117&number=100&addRecipeInformation=true`
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true`
   );
 
   const apiInfo = recipes.data.results.map((e) => {
