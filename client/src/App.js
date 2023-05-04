@@ -4,6 +4,7 @@ import Detail from "./pages/detail";
 import Form from "./pages/form";
 import NavBar from "./components/NavBar";
 import Home from "./pages/home";
+import About from "./pages/about";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       </Route>
       <Route path="/recipe/:id" component={Detail} />
       <Route path="/form" component={Form} />
+      <Route path="/about" component={About} />
     </div>
   );
 }

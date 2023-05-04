@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom";
 
 function NavBar() {
-  return <div className="Form">NavBar</div>;
+  return (
+    <div className="NavBar">
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/form">Create a Recipe!</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
+    </div>
+  );
 }
 
 export default NavBar;
