@@ -1,38 +1,40 @@
 const { Router } = require("express");
 const { Diet, Recipe } = require("../db");
-const {
-  get,
-  getAllRec,
-  getApiRecId,
-  getDbById,
-} = require("../controllers/recipes");
+const { getAllRec, getApiRecId, getDbById } = require("../controllers/recipes");
 
 const router = Router();
 
 router.get("/", async (req, res) => {
   const { name } = req.query;
   // si pasamos name por query, filtra por este name
-  if (name) {
-    const allrec = await getAllRec();
-    let recipeByName = allrec.filter((e) =>
-      e.name.toLowerCase().includes(name.toString().toLowerCase())
-    );
-    return res.status(200).send(recipeByName);
+  try {
+    if (name) {
+      const allrec = await getAllRec();
+      let recipeByName = allrec.filter((e) =>
+        e.name.toLowerCase().includes(name.toString().toLowerCase())
+      );
+      return res.status(200).send(recipeByName);
+    }
+    const rec = await getAllRec();
+    res.status(200).send(rec);
+  } catch (err) {
+    res.send(err);
   }
-
-  const rec = await getAllRec();
-  res.status(200).send(rec);
 });
 
 router.get("/:idRec", async (req, res) => {
   let { idRec } = req.params;
-  let response = null;
-  if (idRec.length > 8) {
-    response = await getDbById(idRec);
-    return res.status(200).send(response);
+  try {
+    let response = null;
+    if (idRec.length > 8) {
+      response = await getDbById(idRec);
+      return res.status(200).send(response);
+    }
+    response = await getApiRecId(idRec);
+    res.status(200).send(response);
+  } catch (err) {
+    res.send(err);
   }
-  response = await getApiRecId(idRec);
-  res.status(200).send(response);
 });
 
 router.post("/", async (req, res) => {
