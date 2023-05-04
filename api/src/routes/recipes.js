@@ -1,6 +1,11 @@
 const { Router } = require("express");
 const { Diet, Recipe } = require("../db");
-const { get, getAllRec, getApiRecId } = require("../controllers/recipes");
+const {
+  get,
+  getAllRec,
+  getApiRecId,
+  getDbById,
+} = require("../controllers/recipes");
 
 const router = Router();
 
@@ -20,9 +25,14 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:idRec", async (req, res) => {
-  const { idRec } = req.params;
-  const rec = await getApiRecId(idRec);
-  res.status(200).send(rec);
+  let { idRec } = req.params;
+  let response = null;
+  if (idRec.length > 8) {
+    response = await getDbById(idRec);
+    return res.status(200).send(response);
+  }
+  response = await getApiRecId(idRec);
+  res.status(200).send(response);
 });
 
 router.post("/", async (req, res) => {

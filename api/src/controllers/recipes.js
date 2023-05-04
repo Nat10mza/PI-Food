@@ -30,22 +30,22 @@ async function getRecipesApi() {
   return apiInfo;
 }
 
-// const getDbInfo = async () => {
-//   return await Recipe.findAll({
-//     include: {
-//       model: Diet,
-//       attributes: ["name"],
-//       through: {
-//         attributes: [],
-//       },
-//     },
-//   });
-// };
+const getDbInfo = async () => {
+  return await Recipe.findAll({
+    include: {
+      model: Diet,
+      attributes: ["name"],
+      through: {
+        attributes: [],
+      },
+    },
+  });
+};
 
 const getAllRec = async () => {
   const api = await getRecipesApi();
-  //   const db = await getDbInfo();
-  return [...api];
+  const db = await getDbInfo();
+  return [...api, ...db];
 };
 
 const getApiRecId = async (id) => {
@@ -67,10 +67,23 @@ const getApiRecId = async (id) => {
     }),
   };
 };
+
+const getDbById = async (id) => {
+  return await Recipe.findByPk(id, {
+    include: {
+      model: Diet,
+      attributes: ["name"],
+      through: {
+        attributes: [],
+      },
+    },
+  });
+};
 // getRecipesApi().then((v) => console.log(v));
 
 module.exports = {
   getRecipesApi,
   getAllRec,
   getApiRecId,
+  getDbById,
 };
