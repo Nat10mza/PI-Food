@@ -47,9 +47,30 @@ const getAllRec = async () => {
   //   const db = await getDbInfo();
   return [...api];
 };
+
+const getApiRecId = async (id) => {
+  const info = await axios.get(
+    `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`
+  );
+  return {
+    image: info.data.image,
+    name: info.data.title,
+    dietTypes: info.data.diets,
+    summary: info.data.summary,
+    score: info.data.spoonacularScore,
+    healthScore: info.data.healthScore,
+    steps: info.data.analyzedInstructions[0]?.steps.map((e) => {
+      return {
+        number: e.number,
+        step: e.step,
+      };
+    }),
+  };
+};
 // getRecipesApi().then((v) => console.log(v));
 
 module.exports = {
   getRecipesApi,
   getAllRec,
+  getApiRecId,
 };
