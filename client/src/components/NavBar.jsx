@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
+import SearchBar from "./SearchBar";
 
 function NavBar() {
   return (
@@ -14,6 +15,7 @@ function NavBar() {
         <li>
           <Link to="/about">About</Link>
         </li>
+        <SearchBar />
       </ul>
     </div>
   );
