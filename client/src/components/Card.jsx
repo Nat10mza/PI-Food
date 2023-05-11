@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import styles from "./SearchBar.module.css";
 
-function Card(propś) {
+function Card({ props }) {
+  // props = props.props;
   return (
     <div className={styles}>
-      <h1>{propś.name}</h1>
+      <h1>{props.name}</h1>
       <p></p>
-      <p>{propś.genres}</p>
+      <p>{props.genres}</p>
     </div>
   );
 }
