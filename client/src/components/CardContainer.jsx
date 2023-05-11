@@ -15,7 +15,6 @@ function CardContainer({ recipes }) {
           </>
         );
       })}
-      hola
     </div>
   );
 }

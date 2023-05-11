@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styles from "./SearchBar.module.css";
 
 function Card({ props }) {
@@ -6,9 +5,11 @@ function Card({ props }) {
   return (
     <div className={styles}>
       <img src={props.image} alt={props.name} />
-      <h1>{props.name}</h1>
+      <h1>
+        <a href={`/recipe/${props.id}`}>{props.name}</a>
+      </h1>
       <p>Health Score: {props.healthScore}</p>
-      <p>{props.dietTypes}</p>
+      <p>Diets: {props.dietTypes}</p>
     </div>
   );
 }
