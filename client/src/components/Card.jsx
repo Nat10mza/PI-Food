@@ -5,9 +5,10 @@ function Card({ props }) {
   // props = props.props;
   return (
     <div className={styles}>
+      <img src={props.image} alt={props.name} />
       <h1>{props.name}</h1>
-      <p></p>
-      <p>{props.genres}</p>
+      <p>Health Score: {props.healthScore}</p>
+      <p>{props.dietTypes}</p>
     </div>
   );
 }
