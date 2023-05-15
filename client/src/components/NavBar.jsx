@@ -15,6 +15,7 @@ function NavBar() {
         <li>
           <Link to="/about">About</Link>
         </li>
+
         <SearchBar />
       </ul>
     </div>

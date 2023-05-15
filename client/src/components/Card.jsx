@@ -1,9 +1,9 @@
-import styles from "./SearchBar.module.css";
+import styles from "./Card.module.css";
 
 function Card({ props }) {
   // props = props.props;
   return (
-    <div className={styles}>
+    <div className={styles.Card}>
       <img src={props.image} alt={props.name} />
       <h1>
         <a href={`/recipe/${props.id}`}>{props.name}</a>
