@@ -1,4 +1,9 @@
-import { GET_DIETS, GET_RECIPES } from "./typeactions";
+import {
+  GET_DIETS,
+  GET_RECIPES,
+  RESET_RECIPES,
+  SEARCH_RECIPE,
+} from "./typeactions";
 
 export const initialState = {
   recipes: [],
@@ -18,6 +23,16 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         dietTypes: action.payload,
+      };
+    case SEARCH_RECIPE:
+      return {
+        ...state,
+        recipes: action.payload,
+      };
+    case RESET_RECIPES:
+      return {
+        ...state,
+        recipes: action.payload,
       };
     default:
       return state;
