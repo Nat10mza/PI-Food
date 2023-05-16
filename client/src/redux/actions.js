@@ -6,6 +6,7 @@ import {
   RESET_RECIPES,
   SEARCH_RECIPE,
   SORT_BY_ALPHABETICAL,
+  SORT_BY_SCORE,
 } from "./typeactions";
 
 export function getRecipes() {
@@ -64,6 +65,15 @@ export function sortAlphabetical(order) {
     order = order.toLowerCase();
     return dispatch({
       type: SORT_BY_ALPHABETICAL,
+      payload: order,
+    });
+  };
+}
+
+export function sortScore(order) {
+  return function (dispatch) {
+    return dispatch({
+      type: SORT_BY_SCORE,
       payload: order,
     });
   };

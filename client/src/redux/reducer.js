@@ -5,6 +5,7 @@ import {
   RESET_RECIPES,
   SEARCH_RECIPE,
   SORT_BY_ALPHABETICAL,
+  SORT_BY_SCORE,
 } from "./typeactions";
 
 export const initialState = {
@@ -63,7 +64,24 @@ function rootReducer(state = initialState, action) {
         ...state,
         recipes: [...sortedRecipes],
       };
-
+    case SORT_BY_SCORE:
+      let sortedRecipesByScore = state.recipes;
+      sortedRecipesByScore =
+        action.payload === "asc"
+          ? state.recipes.sort(function (a, b) {
+              if (a.healthScore > b.healthScore) return 1;
+              if (a.healthScore < b.healthScore) return -1;
+              return 0;
+            })
+          : state.recipes.sort(function (a, b) {
+              if (a.healthScore < b.healthScore) return 1;
+              if (a.healthScore > b.healthScore) return -1;
+              return 0;
+            });
+      return {
+        ...state,
+        recipes: [...sortedRecipesByScore],
+      };
     default:
       return state;
   }
