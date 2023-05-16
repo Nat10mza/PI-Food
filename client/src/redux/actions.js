@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  FILTER_DIETS,
   GET_DIETS,
   GET_RECIPES,
   RESET_RECIPES,
@@ -43,6 +44,18 @@ export function resetRecipes(recipes) {
     return dispatch({
       type: RESET_RECIPES,
       payload: recipes,
+    });
+  };
+}
+
+export function filterDiets(diets) {
+  return function (dispatch) {
+    diets = diets.toLowerCase();
+    console.log(diets);
+
+    return dispatch({
+      type: FILTER_DIETS,
+      payload: diets,
     });
   };
 }

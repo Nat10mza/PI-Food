@@ -8,17 +8,15 @@ async function allDiets() {
   const recipes = await getAllRec();
 
   for (let i = 0; i < recipes.length; i++) {
-    const e = recipes[i];
+    const arrayDiets = recipes[i].dietTypes;
 
-    if (diets.includes(e.dietTypes)) continue;
-    diets.push(...e.dietTypes);
+    for (let j = 0; j < arrayDiets.length; j++) {
+      const diet = arrayDiets[j];
+      if (diets.includes(diet)) continue;
+      diets.push(diet);
+    }
   }
-
-  let arrSinRepetidos = diets.filter((elem, index) => {
-    return diets.indexOf(elem) === index;
-  });
-
-  return arrSinRepetidos;
+  return diets;
 }
 
 // allDiets().then((v) => console.log(v));
