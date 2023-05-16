@@ -1,9 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import { filterDiets } from "../redux/actions";
+import { filterDiets, sortAlphabetical } from "../redux/actions";
 
 function Filters() {
   const dispatch = useDispatch();
   const recipes = useSelector((state) => state.allrecipes);
+
+  function handleAlphabeticalSort(e) {
+    e.preventDefault();
+    dispatch(sortAlphabetical(e.target.value));
+  }
 
   function handleDietFilterChange(e) {
     e.preventDefault();
@@ -13,7 +18,11 @@ function Filters() {
   return (
     <div className="Container">
       <label className="filters">Sort:</label>
-      <select className="select" name="alphabetical" onChange={(e) => e}>
+      <select
+        className="select"
+        name="alphabetical"
+        onChange={(e) => handleAlphabeticalSort(e)}
+      >
         <option disabled selected>
           Alphabetical
         </option>

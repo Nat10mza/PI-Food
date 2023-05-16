@@ -4,6 +4,7 @@ import {
   GET_RECIPES,
   RESET_RECIPES,
   SEARCH_RECIPE,
+  SORT_BY_ALPHABETICAL,
 } from "./typeactions";
 
 export const initialState = {
@@ -44,6 +45,25 @@ function rootReducer(state = initialState, action) {
         ...state,
         recipes: filteredByDietType,
       };
+    case SORT_BY_ALPHABETICAL:
+      let sortedRecipes = state.recipes;
+      sortedRecipes =
+        action.payload === "atoz"
+          ? state.recipes.sort(function (a, b) {
+              if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+              if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+              return 0;
+            })
+          : state.recipes.sort(function (a, b) {
+              if (a.name.toLowerCase() < b.name.toLowerCase()) return 1;
+              if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+              return 0;
+            });
+      return {
+        ...state,
+        recipes: [...sortedRecipes],
+      };
+
     default:
       return state;
   }

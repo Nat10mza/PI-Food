@@ -5,6 +5,7 @@ import {
   GET_RECIPES,
   RESET_RECIPES,
   SEARCH_RECIPE,
+  SORT_BY_ALPHABETICAL,
 } from "./typeactions";
 
 export function getRecipes() {
@@ -51,11 +52,19 @@ export function resetRecipes(recipes) {
 export function filterDiets(diets) {
   return function (dispatch) {
     diets = diets.toLowerCase();
-    console.log(diets);
-
     return dispatch({
       type: FILTER_DIETS,
       payload: diets,
+    });
+  };
+}
+
+export function sortAlphabetical(order) {
+  return function (dispatch) {
+    order = order.toLowerCase();
+    return dispatch({
+      type: SORT_BY_ALPHABETICAL,
+      payload: order,
     });
   };
 }
