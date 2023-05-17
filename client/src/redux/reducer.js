@@ -49,6 +49,11 @@ function rootReducer(state = initialState, action) {
       const filteredByDietType = allRecipes.filter((r) =>
         r.dietTypes?.some((d) => d.toLowerCase() === action.payload)
       );
+      if (action.payload === "all diets")
+        return {
+          ...state,
+          recipes: state.allrecipes,
+        };
       return {
         ...state,
         recipes: filteredByDietType,

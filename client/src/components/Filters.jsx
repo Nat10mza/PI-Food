@@ -39,6 +39,7 @@ function Filters() {
         <option disabled selected>
           Select...
         </option>
+        <option value="all diets">All Diets</option>
         <option value="gluten free">Gluten Free</option>
         <option value="dairy free">Dairy Free</option>
         <option value="lacto ovo vegetarian">Lacto-Vegetarian</option>
