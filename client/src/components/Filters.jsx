@@ -1,5 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { filterDiets, sortAlphabetical, sortScore } from "../redux/actions";
+import {
+  filterDiets,
+  setPage,
+  sortAlphabetical,
+  sortScore,
+} from "../redux/actions";
 
 function Filters() {
   const dispatch = useDispatch();
@@ -8,16 +13,19 @@ function Filters() {
   function handleAlphabeticalSort(e) {
     e.preventDefault();
     dispatch(sortAlphabetical(e.target.value));
+    dispatch(setPage(1));
   }
 
   function handleDietFilterChange(e) {
     e.preventDefault();
     dispatch(filterDiets(e.target.value));
+    dispatch(setPage(1));
   }
 
   function handleScoreSort(e) {
     e.preventDefault();
     dispatch(sortScore(e.target.value));
+    dispatch(setPage(1));
   }
 
   return (

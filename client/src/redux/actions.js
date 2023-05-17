@@ -5,6 +5,7 @@ import {
   GET_RECIPES,
   RESET_RECIPES,
   SEARCH_RECIPE,
+  SET_PAGE,
   SORT_BY_ALPHABETICAL,
   SORT_BY_SCORE,
 } from "./typeactions";
@@ -75,6 +76,15 @@ export function sortScore(order) {
     return dispatch({
       type: SORT_BY_SCORE,
       payload: order,
+    });
+  };
+}
+
+export function setPage(num) {
+  return function (dispatch) {
+    return dispatch({
+      type: SET_PAGE,
+      payload: num,
     });
   };
 }

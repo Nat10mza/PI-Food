@@ -1,7 +1,7 @@
 import styles from "./SearchBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { resetRecipes, searchRecipes } from "../redux/actions";
+import { resetRecipes, searchRecipes, setPage } from "../redux/actions";
 
 function SearchBar() {
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ function SearchBar() {
     if (name === "") {
       dispatch(resetRecipes(recipes));
     }
+    dispatch(setPage(1));
   }
 
   return (
