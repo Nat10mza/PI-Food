@@ -3,7 +3,22 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { getDiets } from "../redux/actions";
+import { addRecipe, getDiets } from "../redux/actions";
+
+function validate(input) {
+  const errors = {};
+  if (!input.name) errors.name = "Please complete with a recipe name";
+  if (!input.summary)
+    errors.summary = "Please add some comments about your recipe";
+  if (!input.image.length) errors.image = "Please add a Image URL";
+  if (input.healthScore < 1 || input.healthScore > 100)
+    errors.healthScore = "The image must be a number between 1 and 100";
+  if (!input.stepByStep.length)
+    errors.stepByStep = "Please detail the stepByStep for your recipe";
+  if (!input.dietTypes.length)
+    errors.dietTypes = "You must select at least one diet type";
+  return errors;
+}
 
 function Form() {
   const dispatch = useDispatch();
@@ -12,9 +27,9 @@ function Form() {
   const [input, setInput] = useState({
     name: "",
     summary: "",
-    score: "",
+    image: "",
     healthScore: "",
-    steps: "",
+    stepByStep: "",
     dietTypes: [],
   });
 
@@ -22,16 +37,70 @@ function Form() {
     dispatch(getDiets());
   }, [dispatch]);
 
-  function handleChange(e) {}
+  function handleChange(e) {
+    e.preventDefault();
+    setInput((prevInput) => {
+      //// de esta manera el componente muestra los cambios (componentdidupdate?) para poder ir validando
+      const newInput = {
+        ...prevInput,
+        [e.target.name]: e.target.value,
+      };
+      const validations = validate(newInput);
+      setErrors(validations);
+      return newInput;
+    });
+  }
 
-  function handleSubmit(e) {}
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  function handleCheckBox(e) {}
+    if (Object.values(errors).length > 0) {
+      alert("Please complete the information required");
+    } else if (
+      input.name === "" &&
+      input.summary === "" &&
+      input.image === "" &&
+      input.healthScore === "" &&
+      input.stepByStep === "" &&
+      !input.dietTypes.length
+    ) {
+      alert("Please complete the form");
+    } else {
+      dispatch(addRecipe(input));
+      alert("New recipe added successfully!");
+      setInput({
+        name: "",
+        summary: "",
+        image: "",
+        healthScore: "",
+        stepByStep: [],
+        dietTypes: [],
+      });
+      // history.push("/home");
+    }
+  }
 
-  function handleSubmit(e) {}
+  function handleCheckBox(e) {
+    let newArray = input.dietTypes;
+    let find = newArray.indexOf(e.target.value);
+
+    if (find >= 0) {
+      newArray.splice(find, 1);
+    } else {
+      newArray.push(e.target.value);
+    }
+
+    setInput({
+      ...input,
+      dietTypes: newArray,
+    });
+    const validations = validate(input);
+    setErrors(validations);
+  }
+
   return (
     <div className="addRecipe">
-      <h1 className="msg">Creat your own recipe!</h1>
+      <h1 className="msg">Create your own recipe!</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="form">
           <div className="prettierForm">
@@ -61,14 +130,14 @@ function Form() {
               )}
             </div>
             <div className="nameInput">
-              <label className="msgs">Score:</label>
+              <label className="msgs">Image:</label>
               <input
-                name="score"
-                type="number"
-                value={input.score}
+                name="image"
+                type="text"
+                value={input.image}
                 onChange={(e) => handleChange(e)}
               />
-              {errors.score && <span className="errors">{errors.score}</span>}
+              {errors.image && <span className="errors">{errors.image}</span>}
             </div>
             <div className="nameInput">
               <label className="msgs">Health Score:</label>
@@ -85,14 +154,16 @@ function Form() {
             <div className="nameInput">
               <label className="msgs">Steps:</label>
               <textarea
-                name="steps"
+                name="stepByStep"
                 type="text"
                 rows="4"
                 cols="40"
-                value={input.steps}
+                value={input.stepByStep}
                 onChange={(e) => handleChange(e)}
               />
-              {errors.steps && <span className="errors">{errors.steps}</span>}
+              {errors.stepByStep && (
+                <span className="errors">{errors.stepByStep}</span>
+              )}
             </div>
           </div>
           <div className="checkSelect">
