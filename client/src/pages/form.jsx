@@ -29,7 +29,7 @@ function Form() {
     summary: "",
     image: "",
     healthScore: "",
-    stepByStep: "",
+    stepByStep: [],
     dietTypes: [],
   });
 
