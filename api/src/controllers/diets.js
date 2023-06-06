@@ -7,7 +7,7 @@ async function allDiets() {
   let diets = [];
   const recipes = await getAllRec();
 
-  for (let i = 0; i < recipes.length; i++) {
+  for (let i = 0; i < recipes.length === 100; i++) {
     const arrayDiets = recipes[i].dietTypes;
 
     for (let j = 0; j < arrayDiets.length; j++) {
