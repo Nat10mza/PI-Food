@@ -29,7 +29,16 @@ function Detail() {
         <h3>Steps:</h3>
       </p>
       <p>
-        <h3>Diet: {recdetail.dietTypes}</h3>
+        {recdetail.diets ? (
+          <h3>
+            Diet:{" "}
+            {recdetail.diets.map((e) => {
+              return e.name;
+            })}
+          </h3>
+        ) : (
+          <h3>Diet: {recdetail.dietTypes}</h3>
+        )}
       </p>
     </div>
   );

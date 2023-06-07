@@ -1,7 +1,7 @@
 const axios = require("axios");
 const db = require("../db");
 const { Diet, Recipe } = require("../db");
-const API_KEY = "ef826a56b8994c0fbec4a8f9ece9db62";
+const API_KEY = "2636f9c9d6084ea8832b979e9a7ab117";
 
 async function getRecipesApi() {
   const recipes = await axios.get(
@@ -31,7 +31,7 @@ async function getRecipesApi() {
 }
 
 const getDbInfo = async () => {
-  return await Recipe.findAll({
+  let dbRecipes = await Recipe.findAll({
     include: {
       model: Diet,
       attributes: ["name"],
@@ -40,6 +40,21 @@ const getDbInfo = async () => {
       },
     },
   });
+
+  let changedDBRecipes = await dbRecipes.map((e) => {
+    return {
+      id: e.id,
+      name: e.name,
+      image: e.image,
+      summary: e.summary,
+      healthScore: e.healthScore,
+      stepByStep: e.stepByStep,
+      dietTypes: e.diets.map((d) => {
+        return (d = d.name);
+      }),
+    };
+  });
+  return changedDBRecipes;
 };
 
 const getAllRec = async () => {
