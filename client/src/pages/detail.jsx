@@ -12,7 +12,7 @@ function Detail() {
     const getRecipe = async () => {
       const recipe = (await axios.get(`http://localhost:3001/recipes/${id}`))
         .data;
-      await setrecdetail(recipe);
+      setrecdetail(recipe);
     };
     getRecipe();
   }, []);
@@ -24,11 +24,25 @@ function Detail() {
       <img src={recdetail.image} alt={recdetail.name} />
       <h2>Heath Score: {recdetail.healthScore}</h2>
 
-      <p>{recdetail.summary}</p>
-      <p>
-        <h3>Steps:</h3>
-      </p>
-      <p>
+      <div className="ddsh">
+        <h3 className="texts">Summary: </h3>
+        <p className="summary">{recdetail.summary?.replace(/<[^>]*>/g, "")}</p>
+      </div>
+
+      <div className="ddsh">
+        <h3 className="texts">Steps: </h3>
+        <ul className="steps">
+          {Array.isArray(recdetail.steps) ? (
+            recdetail.steps.map((e) => {
+              return <li key={e.number}>{e.step}</li>;
+            })
+          ) : (
+            <li>{recdetail.stepByStep}</li>
+          )}
+        </ul>
+      </div>
+
+      <div>
         {recdetail.diets ? (
           <h3>
             Diet:{" "}
@@ -39,7 +53,7 @@ function Detail() {
         ) : (
           <h3>Diet: {recdetail.dietTypes}</h3>
         )}
-      </p>
+      </div>
     </div>
   );
 }
