@@ -5,6 +5,7 @@ import {
   GET_RECIPES,
   RESET_RECIPES,
   SEARCH_RECIPE,
+  SET_LOADING,
   SET_PAGE,
   SORT_BY_ALPHABETICAL,
   SORT_BY_SCORE,
@@ -92,6 +93,15 @@ export function setPage(num) {
     return dispatch({
       type: SET_PAGE,
       payload: num,
+    });
+  };
+}
+
+export function setLoading(boolean) {
+  return function (dispatch) {
+    return dispatch({
+      type: SET_LOADING,
+      payload: boolean,
     });
   };
 }

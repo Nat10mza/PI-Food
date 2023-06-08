@@ -6,3 +6,4 @@ export const FILTER_DIETS = "FILTER_DIETS";
 export const SORT_BY_ALPHABETICAL = "SORT_BY_ALPHABETICAL";
 export const SORT_BY_SCORE = "SORT_BY_SCORE";
 export const SET_PAGE = "SET_PAGE";
+export const SET_LOADING = "SET_LOADING";

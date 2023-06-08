@@ -4,6 +4,7 @@ import {
   GET_RECIPES,
   RESET_RECIPES,
   SEARCH_RECIPE,
+  SET_LOADING,
   SET_PAGE,
   SORT_BY_ALPHABETICAL,
   SORT_BY_SCORE,
@@ -13,6 +14,7 @@ export const initialState = {
   recipes: [],
   allrecipes: [],
   dietTypes: [],
+  loading: false,
   page: 1,
 };
 
@@ -43,6 +45,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         page: action.payload,
+      };
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: action.payload,
       };
     case FILTER_DIETS:
       const allRecipes = state.allrecipes;
