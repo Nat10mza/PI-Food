@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { addRecipe, getDiets } from "../redux/actions";
+import Loading from "../components/Loading";
+import { addRecipe, getDiets, setLoading } from "../redux/actions";
 
 function validate(input) {
   const errors = {};
@@ -22,6 +23,7 @@ function validate(input) {
 
 function Form() {
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.loading);
   const dietTypes = useSelector((state) => state.dietTypes);
   const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
@@ -34,7 +36,11 @@ function Form() {
   });
 
   useEffect(() => {
-    dispatch(getDiets());
+    (async () => {
+      dispatch(setLoading(true));
+      await dispatch(getDiets());
+      dispatch(setLoading(false));
+    })();
   }, [dispatch]);
 
   function handleChange(e) {
@@ -100,101 +106,109 @@ function Form() {
 
   return (
     <div className="addRecipe">
-      <h1 className="msg">Create your own recipe!</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <div className="form">
-          <div className="prettierForm">
-            <div className="nameInput">
-              <label className="msgs">Name:</label>
-              <input
-                className="inputs"
-                name="name"
-                type="text"
-                value={input.name}
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.name && <span className="errors">{errors.name}</span>}
-            </div>
-            <div className="nameInput">
-              <label className="msgs">Summary:</label>
-              <textarea
-                name="summary"
-                type="text"
-                rows="4"
-                cols="30"
-                value={input.summary}
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.summary && (
-                <span className="errors">{errors.summary}</span>
-              )}
-            </div>
-            <div className="nameInput">
-              <label className="msgs">Image:</label>
-              <input
-                name="image"
-                type="text"
-                value={input.image}
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.image && <span className="errors">{errors.image}</span>}
-            </div>
-            <div className="nameInput">
-              <label className="msgs">Health Score:</label>
-              <input
-                name="healthScore"
-                type="number"
-                value={input.healthScore}
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.healthScore && (
-                <span className="errors">{errors.healthScore}</span>
-              )}
-            </div>
-            <div className="nameInput">
-              <label className="msgs">Steps:</label>
-              <textarea
-                name="stepByStep"
-                type="text"
-                rows="4"
-                cols="40"
-                value={input.stepByStep}
-                onChange={(e) => handleChange(e)}
-              />
-              {errors.stepByStep && (
-                <span className="errors">{errors.stepByStep}</span>
-              )}
-            </div>
-          </div>
-          <div className="checkSelect">
-            <label className="msgs">Diet Types:</label>
-            {dietTypes.map((d) => {
-              return (
-                <div key={d.id} className="checks">
-                  <label className="dietTypes">{d.name}</label>
+      {loading === true ? (
+        <Loading />
+      ) : (
+        <>
+          <h1 className="msg">Create your own recipe!</h1>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <div className="form">
+              <div className="prettierForm">
+                <div className="nameInput">
+                  <label className="msgs">Name:</label>
                   <input
-                    className="checks"
-                    type="checkbox"
-                    name={d.name}
-                    value={d.name}
-                    selected={input.dietTypes.includes(d.name)}
-                    onChange={(e) => handleCheckBox(e)}
+                    className="inputs"
+                    name="name"
+                    type="text"
+                    value={input.name}
+                    onChange={(e) => handleChange(e)}
                   />
+                  {errors.name && <span className="errors">{errors.name}</span>}
                 </div>
-              );
-            })}
-            {errors.dietTypes && (
-              <span className="errors">{errors.dietTypes}</span>
-            )}
-          </div>
-        </div>
-        <button className="submitButton" type="submit">
-          Submit Recipe
-        </button>
-        <Link to="/home">
-          <button className="goBackButton">Go back</button>
-        </Link>
-      </form>
+                <div className="nameInput">
+                  <label className="msgs">Summary:</label>
+                  <textarea
+                    name="summary"
+                    type="text"
+                    rows="4"
+                    cols="30"
+                    value={input.summary}
+                    onChange={(e) => handleChange(e)}
+                  />
+                  {errors.summary && (
+                    <span className="errors">{errors.summary}</span>
+                  )}
+                </div>
+                <div className="nameInput">
+                  <label className="msgs">Image:</label>
+                  <input
+                    name="image"
+                    type="text"
+                    value={input.image}
+                    onChange={(e) => handleChange(e)}
+                  />
+                  {errors.image && (
+                    <span className="errors">{errors.image}</span>
+                  )}
+                </div>
+                <div className="nameInput">
+                  <label className="msgs">Health Score:</label>
+                  <input
+                    name="healthScore"
+                    type="number"
+                    value={input.healthScore}
+                    onChange={(e) => handleChange(e)}
+                  />
+                  {errors.healthScore && (
+                    <span className="errors">{errors.healthScore}</span>
+                  )}
+                </div>
+                <div className="nameInput">
+                  <label className="msgs">Steps:</label>
+                  <textarea
+                    name="stepByStep"
+                    type="text"
+                    rows="4"
+                    cols="40"
+                    value={input.stepByStep}
+                    onChange={(e) => handleChange(e)}
+                  />
+                  {errors.stepByStep && (
+                    <span className="errors">{errors.stepByStep}</span>
+                  )}
+                </div>
+              </div>
+              <div className="checkSelect">
+                <label className="msgs">Diet Types:</label>
+                {dietTypes.map((d) => {
+                  return (
+                    <div key={d.id} className="checks">
+                      <label className="dietTypes">{d.name}</label>
+                      <input
+                        className="checks"
+                        type="checkbox"
+                        name={d.name}
+                        value={d.name}
+                        selected={input.dietTypes.includes(d.name)}
+                        onChange={(e) => handleCheckBox(e)}
+                      />
+                    </div>
+                  );
+                })}
+                {errors.dietTypes && (
+                  <span className="errors">{errors.dietTypes}</span>
+                )}
+              </div>
+            </div>
+            <button className="submitButton" type="submit">
+              Submit Recipe
+            </button>
+            <Link to="/home">
+              <button className="goBackButton">Go back</button>
+            </Link>
+          </form>
+        </>
+      )}
     </div>
   );
 }
