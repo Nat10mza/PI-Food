@@ -14,12 +14,12 @@ function SearchBar() {
   }
 
   function handleSubmit(evt) {
-    evt.preventDefault();
-    if (name) {
+    if (name && evt.key === "Enter") {
+      evt.preventDefault();
       dispatch(searchRecipes(name, recipes));
-      // setName("");
     }
     if (name === "") {
+      // evt.preventDefault();
       dispatch(resetRecipes(recipes));
     }
     dispatch(setPage(1));
@@ -33,13 +33,14 @@ function SearchBar() {
           type="text"
           placeholder="Search Recipes..."
           onChange={(evt) => handleInput(evt)}
+          onKeyDown={(evt) => handleSubmit(evt)}
         ></input>
         <button
           className={styles.button}
           type="submit"
           onClick={(evt) => handleSubmit(evt)}
         >
-          Buscar
+          buscar
         </button>
       </div>
     </div>

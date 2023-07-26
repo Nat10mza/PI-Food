@@ -2,7 +2,7 @@ import styles from "./Card.module.css";
 
 function Card({ props }) {
   // props = props.props;
-  console.log(props);
+
   return (
     <div className={styles.Card}>
       <img src={props.image} alt={props.name} />

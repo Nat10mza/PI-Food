@@ -5,6 +5,7 @@ import CardContainer from "../components/CardContainer";
 import Filters from "../components/Filters";
 import Paged from "../components/Paged";
 import Loading from "../components/Loading";
+import styles from "./home.module.css";
 
 function Home() {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ function Home() {
   }, [dispatch]);
 
   return (
-    <div className="Home">
+    <div className={styles.home}>
       {loading === true ? (
         <Loading />
       ) : (

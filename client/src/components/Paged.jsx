@@ -1,3 +1,5 @@
+import styles from "./Paged.module.css";
+
 function Paged({ recipesPage, allRecipes, paged }) {
   const pages = [];
 
@@ -11,7 +13,7 @@ function Paged({ recipesPage, allRecipes, paged }) {
         <></>
       ) : (
         <nav className="pagination">
-          <ul className="pages">
+          <ul className={styles.Pages}>
             {pages?.map((p) => (
               <li className="page" key={p}>
                 <button

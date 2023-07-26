@@ -1,15 +1,17 @@
-.SearchBar {
+.hero {
+  /* background: url("/client/public/blurry-gradient-haikei.svg"); */
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  margin: 10px;
+  width: 100%;
+  margin-bottom: 6em;
+  gap: 3em;
 }
-.input {
-  width: 200px;
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+.text {
+  text-align: start;
+  margin-left: 2em;
 }
 
 .button {
@@ -20,10 +22,9 @@
   padding: 10px 20px;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  top: 0;
-  right: 0;
   transition: 0.9s ease;
+  position: relative;
+  top: 50%;
   margin: 10px;
 }
 
@@ -31,4 +32,11 @@
   transform: scale(1.1);
   color: #e8fdef;
   background-color: #42b36b;
+}
+
+.img {
+  margin: 2em;
+  height: 20em;
+  width: 20em;
+  background-color: black;
 }

@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+h1,
+a,
+p,
+label,
+h2,
+h3,
+li {
+  color: #e8fdef;
+}
+
+a,
+ul {
+  text-decoration: none;
+}
