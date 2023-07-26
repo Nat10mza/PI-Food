@@ -1,11 +1,9 @@
 .hero {
-  /* background: url("/client/public/blurry-gradient-haikei.svg"); */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 6em;
   gap: 3em;
 }
 
@@ -34,9 +32,13 @@
   background-color: #42b36b;
 }
 
-.img {
+.imgcontainer {
+  /* background-color: black; */
   margin: 2em;
-  height: 20em;
-  width: 20em;
-  background-color: black;
+}
+
+.img {
+  height: 70vh;
+  width: 70vh;
+  object-fit: fill;
 }

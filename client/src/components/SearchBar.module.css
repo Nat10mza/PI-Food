@@ -7,6 +7,7 @@
 .input {
   width: 200px;
   padding: 10px;
+  margin-right: 7%;
   border: none;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -21,8 +22,8 @@
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 20px;
+  right: 7%;
   transition: 0.9s ease;
   margin: 10px;
 }
