@@ -19,9 +19,11 @@ function Home() {
 
   useEffect(() => {
     (async () => {
+      // if (recipes.length === 0) {
       dispatch(setLoading(true));
       await dispatch(getRecipes());
       dispatch(setLoading(false));
+      // }
     })();
   }, [dispatch]);
 

@@ -5,11 +5,16 @@
   margin: 10px;
 }
 .input {
+  position: absolute;
+  top: 15px;
+  right: 5%;
+  transition: 0.9s ease;
+  margin: 10px;
   width: 200px;
   padding: 10px;
   margin-right: 7%;
   border: none;
-  border-radius: 20px;
+  border-radius: 20px 0 0 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -22,7 +27,7 @@
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 20px;
+  top: 15px;
   right: 7%;
   transition: 0.9s ease;
   margin: 10px;

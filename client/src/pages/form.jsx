@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import Loading from "../components/Loading";
 import { addRecipe, getDiets, setLoading } from "../redux/actions";
+import styles from "./form.module.css";
 
 function validate(input) {
   const errors = {};
@@ -105,7 +106,7 @@ function Form() {
   }
 
   return (
-    <div className="addRecipe">
+    <div className={styles.form}>
       {loading === true ? (
         <Loading />
       ) : (
