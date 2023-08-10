@@ -6,12 +6,14 @@ function Landing() {
   return (
     <div className={styles.hero}>
       <div className={styles.text}>
-        <h1>Bienvenido a Mi Food app</h1>
-        <h3> Aqui podras encontrar, filtrar y ordenar</h3>
-        <h3>tus recetas segun tus gustos!</h3>
+        <h1 className={styles.title}>Bienvenido a Mi Food app</h1>
+        <h3 className={styles.description}>
+          {" "}
+          Aqui podras encontrar, filtrar y ordenar tus recetas segun tus gustos!
+        </h3>
         <div>
           <Link to="/home">
-            <button className={styles.button}>Go!</button>
+            <button className={styles.button}>Let's Go!</button>
           </Link>
         </div>
       </div>

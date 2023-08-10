@@ -7,6 +7,9 @@ function NavBar() {
     <div className={styles.NavBar}>
       <ul>
         <li>
+          <Link to="/">Food Pi</Link>
+        </li>
+        <li>
           <Link to="/home">Home</Link>
         </li>
         <li>

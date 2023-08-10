@@ -42,3 +42,12 @@
   width: 70vh;
   object-fit: fill;
 }
+
+.title {
+  font-size: 45px;
+}
+
+.description {
+  font-size: 25px;
+  font-weight: normal;
+}
