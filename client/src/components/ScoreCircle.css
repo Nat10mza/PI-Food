@@ -1,0 +1,31 @@
+.ContainerScore {
+  /* background: #d2142d; */
+  border: 0.1875em solid #04aa6d;
+  border-radius: 50%;
+  box-shadow: 0.2em 0.2em 0 0 #04aa6d;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 9%;
+  right: -6%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.healthy {
+  background: green;
+}
+
+.mid {
+  background: orange;
+}
+
+.nothealthy {
+  background: red;
+}
+
+.score {
+  font-size: 1em;
+  font-weight: bold;
+  text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+}
