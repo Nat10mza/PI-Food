@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  ERROR_GET_RECIPES,
   FILTER_DIETS,
   GET_DIETS,
   GET_RECIPES,
@@ -17,6 +18,15 @@ export function getRecipes() {
     return dispatch({
       type: GET_RECIPES,
       payload: api.data,
+    });
+  };
+}
+
+export function errorGetRecipes() {
+  return function (dispatch) {
+    return dispatch({
+      type: ERROR_GET_RECIPES,
+      payload: "Failed to get recipes",
     });
   };
 }

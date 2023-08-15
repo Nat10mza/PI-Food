@@ -1,0 +1,56 @@
+.page_404 {
+  padding: 40px 0;
+  background: transparent;
+  font-family: "Arvo", serif;
+}
+
+.page_404 img {
+  width: 100%;
+}
+
+.four_zero_four_bg {
+  background-image: url("../images/foodies-burger.gif");
+  height: 500px;
+  width: 40%;
+  display: inline-block;
+  background-position: center;
+  /* margin: px; */
+}
+
+.four_zero_four_bg h1 {
+  font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+  font-size: 80px;
+}
+
+.link_404 {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: #39ac31;
+  margin: 20px 0;
+  display: inline-block;
+}
+.contant_box_404 {
+  margin-top: -50px;
+}
+
+.button {
+  background-color: #d2142d;
+  border: none;
+  color: #e8fdef;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.9s ease;
+  position: relative;
+  top: 50%;
+  margin: 10px;
+}
+.button:hover {
+  transform: scale(1.1);
+  color: #e8fdef;
+  background-color: #42b36b;
+}

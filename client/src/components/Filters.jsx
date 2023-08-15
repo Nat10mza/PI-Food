@@ -1,4 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import "./Filters.scss";
 import {
   filterDiets,
   setPage,
@@ -8,7 +9,7 @@ import {
 
 function Filters() {
   const dispatch = useDispatch();
-  const recipes = useSelector((state) => state.allrecipes);
+  // const recipes = useSelector((state) => state.allrecipes);
 
   function handleAlphabeticalSort(e) {
     e.preventDefault();

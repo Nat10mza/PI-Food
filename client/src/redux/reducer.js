@@ -1,4 +1,5 @@
 import {
+  ERROR_GET_RECIPES,
   FILTER_DIETS,
   GET_DIETS,
   GET_RECIPES,
@@ -16,6 +17,7 @@ export const initialState = {
   dietTypes: [],
   loading: false,
   page: 1,
+  errors: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -30,6 +32,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         dietTypes: action.payload,
+      };
+    case ERROR_GET_RECIPES:
+      return {
+        ...state,
+        errors: action.payload,
       };
     case SEARCH_RECIPE:
       return {
