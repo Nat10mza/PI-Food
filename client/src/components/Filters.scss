@@ -1,13 +1,26 @@
 $glass: rgba(255, 255, 255, 0.2);
 $glass-icon: rgba(255, 255, 255, 0.3);
-$gradient: linear-gradient(35deg, red, purple);
-$option: #320a28;
+$gradient: linear-gradient(35deg, red, green);
+$option: black;
 
 // body {
 //   background: $gradient;
 // }
 
 /* <select> styles */
+
+.Container {
+  width: 30%;
+}
+
+.wrapper {
+  position: sticky;
+  top: 1%;
+}
+
+.filters {
+  text-align: center;
+}
 select {
   /* Reset */
   appearance: none;

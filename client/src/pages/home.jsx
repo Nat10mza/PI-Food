@@ -31,9 +31,9 @@ function Home() {
 
       await dispatch(getRecipes());
       console.log(recipes.message); // check if this works when is succesfull
-      if (recipes.message === undefined) {
-        dispatch(errorGetRecipes());
-      }
+      // if (recipes.message === undefined) {
+      //   dispatch(errorGetRecipes());
+      // }
 
       dispatch(setLoading(false));
       // }
@@ -46,17 +46,19 @@ function Home() {
         <Loading />
       ) : (
         <>
-          {errors ? (
+          {errors.length > 0 ? (
             <ErrorCard />
           ) : (
             <>
               <Filters />
-              <CardContainer recipes={recipes}></CardContainer>
-              <Paged
-                recipesPage={9}
-                allRecipes={recipes.length}
-                paged={paged}
-              />
+              <section>
+                <CardContainer recipes={recipes}></CardContainer>
+                <Paged
+                  recipesPage={9}
+                  allRecipes={recipes.length}
+                  paged={paged}
+                />
+              </section>
             </>
           )}
         </>
