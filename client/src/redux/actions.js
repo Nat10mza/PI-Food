@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  ERROR_GET_DIETS,
   ERROR_GET_RECIPES,
   FILTER_DIETS,
   GET_DIETS,
@@ -14,30 +15,59 @@ import {
 
 export function getRecipes() {
   return async function (dispatch) {
-    let api = await axios.get(`http://localhost:3001/recipes`);
-    return dispatch({
-      type: GET_RECIPES,
-      payload: api.data,
-    });
-  };
-}
-
-export function errorGetRecipes() {
-  return function (dispatch) {
-    return dispatch({
-      type: ERROR_GET_RECIPES,
-      payload: "Failed to get recipes",
-    });
+    dispatch({ type: SET_LOADING }); // Cambiar loading a true
+    return axios
+      .get(`http://localhost:3001/recipes`)
+      .then((response) => {
+        dispatch({ type: GET_RECIPES, payload: response.data });
+      })
+      .catch((error) => {
+        if (error.response) {
+          // Error de respuesta HTTP con código de estado no exitoso
+          dispatch({ type: ERROR_GET_RECIPES, error: error.response.data });
+        } else if (error.request) {
+          // Error de solicitud sin respuesta del servidor
+          dispatch({
+            type: ERROR_GET_RECIPES,
+            error: "Error connecting to server :(",
+          });
+        } else {
+          // Otros errores
+          dispatch({
+            type: ERROR_GET_RECIPES,
+            error: "Ocurrió un error desconocido",
+          });
+        }
+      });
   };
 }
 
 export function getDiets() {
   return async function (dispatch) {
-    let api = await axios.get(`http://localhost:3001/diets`);
-    return dispatch({
-      type: GET_DIETS,
-      payload: api.data,
-    });
+    dispatch({ type: SET_LOADING }); // Cambiar loading a true
+    return axios
+      .get(`http://localhost:3001/diets`)
+      .then((response) => {
+        dispatch({ type: GET_DIETS, payload: response.data });
+      })
+      .catch((error) => {
+        if (error.response) {
+          // Error de respuesta HTTP con código de estado no exitoso
+          dispatch({ type: ERROR_GET_DIETS, error: error.response.data });
+        } else if (error.request) {
+          // Error de solicitud sin respuesta del servidor
+          dispatch({
+            type: ERROR_GET_DIETS,
+            error: "Error connecting to server :(",
+          });
+        } else {
+          // Otros errores
+          dispatch({
+            type: ERROR_GET_RECIPES,
+            error: "Ocurrió un error desconocido",
+          });
+        }
+      });
   };
 }
 

@@ -1,4 +1,5 @@
 import {
+  ERROR_GET_DIETS,
   ERROR_GET_RECIPES,
   FILTER_DIETS,
   GET_DIETS,
@@ -17,7 +18,7 @@ export const initialState = {
   dietTypes: [],
   loading: false,
   page: 1,
-  errors: [],
+  error: null,
 };
 
 function rootReducer(state = initialState, action) {
@@ -27,17 +28,34 @@ function rootReducer(state = initialState, action) {
         ...state,
         recipes: action.payload,
         allrecipes: action.payload,
+        error: null,
+        loading: false,
       };
+    case ERROR_GET_RECIPES: {
+      return {
+        ...state,
+        recipes: [],
+        allrecipes: [], // Vaciar las recetas en caso de error
+        error: action.error,
+        loading: false,
+      };
+    }
     case GET_DIETS:
       return {
         ...state,
         dietTypes: action.payload,
+        error: null,
+        loading: false,
       };
-    case ERROR_GET_RECIPES:
+    case ERROR_GET_DIETS: {
       return {
         ...state,
-        errors: action.payload,
+        dietTypes: [],
+        // Vaciar las dietas en caso de error
+        error: action.error,
+        loading: false,
       };
+    }
     case SEARCH_RECIPE:
       return {
         ...state,
@@ -56,7 +74,7 @@ function rootReducer(state = initialState, action) {
     case SET_LOADING:
       return {
         ...state,
-        loading: action.payload,
+        loading: true,
       };
     case FILTER_DIETS:
       const allRecipes = state.allrecipes;

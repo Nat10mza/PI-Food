@@ -37,11 +37,7 @@ function Form() {
   });
 
   useEffect(() => {
-    (async () => {
-      dispatch(setLoading(true));
-      await dispatch(getDiets());
-      dispatch(setLoading(false));
-    })();
+    dispatch(getDiets());
   }, [dispatch]);
 
   function handleChange(e) {

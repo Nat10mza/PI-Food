@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./ErrorCard.css";
 
-function ErrorCard() {
+function ErrorCard({ errorMessage }) {
   return (
     <section class="page_404">
       <div class="container">
@@ -15,7 +15,7 @@ function ErrorCard() {
               <div class="contant_box_404">
                 <h3 class="h2">Look like you're lost</h3>
 
-                <p>the page you are looking for not avaible!</p>
+                <p>{errorMessage}</p>
                 <button className="button">
                   <Link to="/">Go to Home</Link>
                 </button>

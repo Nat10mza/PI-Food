@@ -8,6 +8,8 @@ function CardContainer({ recipes }) {
 
   const quantityRecipesPage = page * 9;
   const firstRecipePage = quantityRecipesPage - 9;
+
+  if (recipes.message) return null;
   recipes = recipes.slice(firstRecipePage, quantityRecipesPage);
 
   return (

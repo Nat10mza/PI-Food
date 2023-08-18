@@ -8,3 +8,4 @@ export const SORT_BY_SCORE = "SORT_BY_SCORE";
 export const SET_PAGE = "SET_PAGE";
 export const SET_LOADING = "SET_LOADING";
 export const ERROR_GET_RECIPES = "ERROR_GET_RECIPES";
+export const ERROR_GET_DIETS = "ERROR_GET_DIETS";
