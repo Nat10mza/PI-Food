@@ -2,6 +2,7 @@ import {
   ERROR_GET_DIETS,
   ERROR_GET_RECIPES,
   FILTER_DIETS,
+  GET_DETAIL_DIET,
   GET_DIETS,
   GET_RECIPES,
   RESET_RECIPES,
@@ -16,6 +17,7 @@ export const initialState = {
   recipes: [],
   allrecipes: [],
   dietTypes: [],
+  detailDiet: {},
   loading: false,
   page: 1,
   error: null,
@@ -44,6 +46,13 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         dietTypes: action.payload,
+        error: null,
+        loading: false,
+      };
+    case GET_DETAIL_DIET:
+      return {
+        ...state,
+        detailDiet: action.payload,
         error: null,
         loading: false,
       };

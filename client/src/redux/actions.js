@@ -3,6 +3,7 @@ import {
   ERROR_GET_DIETS,
   ERROR_GET_RECIPES,
   FILTER_DIETS,
+  GET_DETAIL_DIET,
   GET_DIETS,
   GET_RECIPES,
   RESET_RECIPES,
@@ -49,6 +50,35 @@ export function getDiets() {
       .get(`http://localhost:3001/diets`)
       .then((response) => {
         dispatch({ type: GET_DIETS, payload: response.data });
+      })
+      .catch((error) => {
+        if (error.response) {
+          // Error de respuesta HTTP con código de estado no exitoso
+          dispatch({ type: ERROR_GET_DIETS, error: error.response.data });
+        } else if (error.request) {
+          // Error de solicitud sin respuesta del servidor
+          dispatch({
+            type: ERROR_GET_DIETS,
+            error: "Error connecting to server :(",
+          });
+        } else {
+          // Otros errores
+          dispatch({
+            type: ERROR_GET_RECIPES,
+            error: "Ocurrió un error desconocido",
+          });
+        }
+      });
+  };
+}
+
+export function getDetailRecipe(id) {
+  return async function (dispatch) {
+    dispatch({ type: SET_LOADING }); // Cambiar loading a true
+    return axios
+      .get(`http://localhost:3001/recipes/${id}`)
+      .then((response) => {
+        dispatch({ type: GET_DETAIL_DIET, payload: response.data });
       })
       .catch((error) => {
         if (error.response) {

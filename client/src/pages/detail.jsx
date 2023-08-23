@@ -1,27 +1,17 @@
-import axios from "axios";
 import { useEffect } from "react";
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoading } from "../redux/actions";
+import { getDetailRecipe } from "../redux/actions";
 import Loading from "../components/Loading";
 
 function Detail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.loading);
-
-  const [recdetail, setrecdetail] = useState("");
+  const recdetail = useSelector((state) => state.detailDiet);
 
   useEffect(() => {
-    const getRecipe = async () => {
-      dispatch(setLoading(true));
-      const recipe = (await axios.get(`http://localhost:3001/recipes/${id}`))
-        .data;
-      setrecdetail(recipe);
-      dispatch(setLoading(false));
-    };
-    getRecipe();
+    dispatch(getDetailRecipe(id));
   }, []);
 
   console.log(recdetail);

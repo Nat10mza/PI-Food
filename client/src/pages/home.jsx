@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getRecipes, setLoading, setPage } from "../redux/actions";
+import { getRecipes, setPage } from "../redux/actions";
 import CardContainer from "../components/CardContainer";
 import Filters from "../components/Filters";
 import Paged from "../components/Paged";
@@ -18,12 +18,17 @@ function Home() {
     dispatch(setPage(pageNumber));
   };
 
+  function className() {
+    if (loading === true) return "";
+    return styles.home;
+  }
+
   useEffect(() => {
     dispatch(getRecipes());
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={className()}>
       {loading ? (
         <Loading />
       ) : error ? (
