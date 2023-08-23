@@ -19,7 +19,8 @@ function Home() {
   };
 
   function className() {
-    if (loading === true) return "";
+    if (loading || error) return "";
+
     return styles.home;
   }
 
