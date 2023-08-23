@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
 import { addRecipe, getDiets, setLoading } from "../redux/actions";
 import styles from "./form.module.css";
+import ErrorCard from "../components/ErrorCard";
 
 function validate(input) {
   const errors = {};
@@ -26,6 +27,7 @@ function Form() {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.loading);
   const dietTypes = useSelector((state) => state.dietTypes);
+  const error = useSelector((state) => state.error);
   const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
     name: "",
@@ -103,9 +105,11 @@ function Form() {
 
   return (
     <div className={styles.form}>
-      {loading === true ? (
+      {loading ? (
         <Loading />
-      ) : (
+      ) : error ? (
+        <ErrorCard errorMessage={error} />
+      ) : dietTypes ? (
         <>
           <h1 className="msg">Create your own recipe!</h1>
           <form onSubmit={(e) => handleSubmit(e)}>
@@ -205,7 +209,7 @@ function Form() {
             </Link>
           </form>
         </>
-      )}
+      ) : null}
     </div>
   );
 }

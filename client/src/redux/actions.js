@@ -30,13 +30,13 @@ export function getRecipes() {
           // Error de solicitud sin respuesta del servidor
           dispatch({
             type: ERROR_GET_RECIPES,
-            error: "Error connecting to server :(",
+            error: "An error has occured, try later :(",
           });
         } else {
           // Otros errores
           dispatch({
             type: ERROR_GET_RECIPES,
-            error: "Ocurrió un error desconocido",
+            error: "Unknokn error",
           });
         }
       });
@@ -59,7 +59,7 @@ export function getDiets() {
           // Error de solicitud sin respuesta del servidor
           dispatch({
             type: ERROR_GET_DIETS,
-            error: "Error connecting to server :(",
+            error: "An error has occured, try later :(",
           });
         } else {
           // Otros errores
@@ -88,7 +88,7 @@ export function getDetailRecipe(id) {
           // Error de solicitud sin respuesta del servidor
           dispatch({
             type: ERROR_GET_DIETS,
-            error: "Error connecting to server :(",
+            error: "An error has occured, try later :(",
           });
         } else {
           // Otros errores
