@@ -2,14 +2,14 @@ import styles from "./Loading.module.css";
 
 function Loading() {
   return (
-    <div class={styles.loadingContainer}>
-      <div class={styles.panLoader}>
-        <div class={styles.loader}></div>
-        <div class={styles.panContainer}>
-          <div class={styles.pan}></div>
-          <div class={styles.handle}></div>
+    <div className={styles.loadingContainer}>
+      <div className={styles.panLoader}>
+        <div className={styles.loader}></div>
+        <div className={styles.panContainer}>
+          <div className={styles.pan}></div>
+          <div className={styles.handle}></div>
         </div>
-        <div class={styles.shadow}></div>
+        <div className={styles.shadow}></div>
       </div>
     </div>
   );

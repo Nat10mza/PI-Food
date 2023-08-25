@@ -17,9 +17,9 @@ function CardContainer({ recipes }) {
       {recipes.map((recipe) => {
         // console.log(recipe);
         return (
-          <>
+          <div key={recipe.id}>
             <Card props={recipe}></Card>
-          </>
+          </div>
         );
       })}
     </div>

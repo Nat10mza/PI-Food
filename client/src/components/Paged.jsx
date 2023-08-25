@@ -29,20 +29,20 @@ function Paged({ recipesPage, allRecipes, paged }) {
   }
 
   return (
-    <nav class="containerPager">
-      <ul class="pager">
+    <nav className="containerPager">
+      <ul className="pager">
         <li
-          class="pager__item pager__item--prev"
+          className="pager__item pager__item--prev"
           onClick={() => prevPageHandler()}
         >
-          <a class="pager__link">
+          <a className="pager__link">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="8"
               height="12"
-              viewbox="0 0 8 12"
+              viewBox="0 0 8 12"
             >
-              <g fill="none" fill-rule="evenodd">
+              <g fill="none" fillRule="evenodd">
                 <path
                   fill="#f1f1f1"
                   d="M7.41 1.41L6 0 0 6l6 6 1.41-1.41L2.83 6z"
@@ -53,20 +53,20 @@ function Paged({ recipesPage, allRecipes, paged }) {
         </li>
 
         {pages?.map((p) => (
-          <li class="pager__item" key={p} onClick={() => clickHandler(p)}>
-            <a class="pager__link">{p}</a>
+          <li className="pager__item" key={p} onClick={() => clickHandler(p)}>
+            <a className="pager__link">{p}</a>
           </li>
         ))}
 
-        <li class="pager__item pager__item--next">
-          <a class="pager__link" onClick={() => nextPageHandler()}>
+        <li className="pager__item pager__item--next">
+          <a className="pager__link" onClick={() => nextPageHandler()}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="8"
               height="12"
-              viewbox="0 0 8 12"
+              viewBox="0 0 8 12"
             >
-              <g fill="none" fill-rule="evenodd">
+              <g fill="none" fillRule="evenodd">
                 <path
                   fill="#f1f1f1"
                   d="M7.41 1.41L6 0 0 6l6 6 1.41-1.41L2.83 6z"
@@ -78,9 +78,9 @@ function Paged({ recipesPage, allRecipes, paged }) {
       </ul>
     </nav>
 
-    // <div class={styles.pagination}>
+    // <div className={styles.pagination}>
     //   {pages?.map((p) => (
-    //     <button key={p} class={styles.btn} onClick={() => paged(p)}>
+    //     <button key={p} className={styles.btn} onClick={() => paged(p)}>
     //       {p}
     //     </button>
     //   ))}

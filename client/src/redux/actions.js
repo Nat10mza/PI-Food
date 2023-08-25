@@ -42,6 +42,29 @@ export function getRecipes() {
       });
   };
 }
+//------------With Fetch-------------------
+// export function getRecipes() {
+//   return async function (dispatch) {
+//     dispatch({ type: SET_LOADING });
+
+//     try {
+//       const response = await fetch("http://localhost:3001/recipes");
+
+//       if (!response.ok) {
+//         const errorData = await response.json();
+//         throw new Error(errorData.message || "An error occurred");
+//       }
+
+//       const data = await response.json();
+//       dispatch({ type: GET_RECIPES, payload: data });
+//     } catch (error) {
+//       dispatch({
+//         type: ERROR_GET_RECIPES,
+//         error: error.message || "Unknown error",
+//       });
+//     }
+//   };
+// }
 
 export function getDiets() {
   return async function (dispatch) {

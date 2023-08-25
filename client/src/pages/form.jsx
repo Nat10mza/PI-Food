@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
-import { addRecipe, getDiets, setLoading } from "../redux/actions";
+import { addRecipe, getDiets } from "../redux/actions";
 import styles from "./form.module.css";
 import ErrorCard from "../components/ErrorCard";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function validate(input) {
   const errors = {};
@@ -25,6 +26,7 @@ function validate(input) {
 
 function Form() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const loading = useSelector((state) => state.loading);
   const dietTypes = useSelector((state) => state.dietTypes);
   const error = useSelector((state) => state.error);
@@ -81,7 +83,7 @@ function Form() {
         stepByStep: [],
         dietTypes: [],
       });
-      // history.push("/home");
+      history.push("/home");
     }
   }
 
