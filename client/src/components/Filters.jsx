@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./Filters.scss";
 import {
   filterDiets,
@@ -9,7 +9,7 @@ import {
 
 function Filters() {
   const dispatch = useDispatch();
-  // const recipes = useSelector((state) => state.allrecipes);
+  const dietTypes = useSelector((state) => state.dietTypes);
 
   function handleAlphabeticalSort(e) {
     e.preventDefault();
@@ -39,17 +39,12 @@ function Filters() {
           onChange={(e) => handleDietFilterChange(e)}
         >
           <option disabled selected>
-            Type of Diet!
+            Type of diet!
           </option>
-          <option value="all diets">All Diets</option>
-          <option value="gluten free">Gluten Free</option>
-          <option value="dairy free">Dairy Free</option>
-          <option value="lacto ovo vegetarian">Lacto-Vegetarian</option>
-          <option value="vegan">Vegan</option>
-          <option value="paleolithic">Paleo</option>
-          <option value="primal">Primal</option>
-          <option value="whole 30">Whole30</option>
-          <option value="pescatarian">Pescatarian</option>
+          <option value="all diets">All diets</option>
+          {dietTypes.map((diet) => {
+            return <option value={diet.name}>{diet.name}</option>;
+          })}
         </select>
         <label className="filters">Sort:</label>
         <select

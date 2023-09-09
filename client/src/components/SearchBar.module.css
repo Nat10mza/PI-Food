@@ -7,7 +7,7 @@
 .input {
   position: absolute;
   top: 15px;
-  /* right: 5%; */
+  right: 3%;
   transition: 0.9s ease;
   margin: 10px;
   width: 200px;

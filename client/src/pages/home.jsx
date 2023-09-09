@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getRecipes, setPage } from "../redux/actions";
+import { getDiets, getRecipes, setPage } from "../redux/actions";
 import CardContainer from "../components/CardContainer";
 import Filters from "../components/Filters";
 import Paged from "../components/Paged";
@@ -19,13 +19,15 @@ function Home() {
   };
 
   function className() {
-    if (loading || error) return "";
+    if (loading) return "";
+    if (error) return styles.errorContainer;
 
     return styles.home;
   }
 
   useEffect(() => {
     dispatch(getRecipes());
+    dispatch(getDiets());
   }, [dispatch]);
 
   return (
