@@ -9,7 +9,6 @@
 
 .text {
   text-align: start;
-  margin-left: 2em;
 }
 
 .button {
@@ -17,7 +16,7 @@
   border: none;
   color: #e8fdef;
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 20px 40px;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: 0.9s ease;

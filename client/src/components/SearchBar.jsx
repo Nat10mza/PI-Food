@@ -1,10 +1,12 @@
 import styles from "./SearchBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { resetRecipes, searchRecipes, setPage } from "../redux/actions";
 
 function SearchBar() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [name, setName] = useState("");
   const recipes = useSelector((state) => state.allrecipes);
 
@@ -16,6 +18,7 @@ function SearchBar() {
   function handleSubmit(evt) {
     if (name && evt.key === "Enter") {
       evt.preventDefault();
+      history.push("/home");
       dispatch(searchRecipes(name, recipes));
     }
     if (name === "") {

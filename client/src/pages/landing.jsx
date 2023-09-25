@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./landing.module.css";
-import FoodLanding from "../images/FoodLanding.png";
+import logo from "../images/logo.png";
 
 function Landing() {
   return (
@@ -18,7 +18,7 @@ function Landing() {
         </div>
       </div>
       <div className={styles.imgcontainer}>
-        <img className={styles.img} src={FoodLanding} alt="" />
+        <img className={styles.img} src={logo} alt="" />
       </div>
     </div>
   );
