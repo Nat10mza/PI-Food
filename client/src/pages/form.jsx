@@ -118,57 +118,53 @@ function Form() {
             <div className="form">
               <div className="prettierForm">
                 <div className="nameInput">
-                  <label className="msgs">Name:</label>
                   <input
                     className="inputs"
                     name="name"
                     type="text"
+                    placeholder="Name"
                     value={input.name}
                     onChange={(e) => handleChange(e)}
                   />
-                  {errors.name && <span className="errors">{errors.name}</span>}
+                  {errors.name && <p className="errors">{errors.name}</p>}
                 </div>
                 <div className="nameInput">
-                  <label className="msgs">Summary:</label>
                   <textarea
+                    placeholder="Summary"
                     name="summary"
                     type="text"
                     rows="4"
-                    cols="30"
+                    cols="40"
                     value={input.summary}
                     onChange={(e) => handleChange(e)}
                   />
-                  {errors.summary && (
-                    <span className="errors">{errors.summary}</span>
-                  )}
+                  {errors.summary && <p className="errors">{errors.summary}</p>}
                 </div>
                 <div className="nameInput">
-                  <label className="msgs">Image:</label>
                   <input
+                    placeholder="Image"
                     name="image"
                     type="text"
                     value={input.image}
                     onChange={(e) => handleChange(e)}
                   />
-                  {errors.image && (
-                    <span className="errors">{errors.image}</span>
-                  )}
+                  {errors.image && <p className="errors">{errors.image}</p>}
                 </div>
                 <div className="nameInput">
-                  <label className="msgs">Health Score:</label>
                   <input
                     name="healthScore"
+                    placeholder="Health Score"
                     type="number"
                     value={input.healthScore}
                     onChange={(e) => handleChange(e)}
                   />
                   {errors.healthScore && (
-                    <span className="errors">{errors.healthScore}</span>
+                    <p className="errors">{errors.healthScore}</p>
                   )}
                 </div>
                 <div className="nameInput">
-                  <label className="msgs">Steps:</label>
                   <textarea
+                    placeholder="Steps"
                     name="stepByStep"
                     type="text"
                     rows="4"
@@ -177,7 +173,7 @@ function Form() {
                     onChange={(e) => handleChange(e)}
                   />
                   {errors.stepByStep && (
-                    <span className="errors">{errors.stepByStep}</span>
+                    <p className="errors">{errors.stepByStep}</p>
                   )}
                 </div>
               </div>
@@ -186,7 +182,6 @@ function Form() {
                 {dietTypes.map((d) => {
                   return (
                     <div key={d.id} className="checks">
-                      <label className="dietTypes">{d.name}</label>
                       <input
                         className="checks"
                         type="checkbox"
@@ -195,11 +190,12 @@ function Form() {
                         selected={input.dietTypes.includes(d.name)}
                         onChange={(e) => handleCheckBox(e)}
                       />
+                      <label className="dietTypes">{d.name}</label>
                     </div>
                   );
                 })}
                 {errors.dietTypes && (
-                  <span className="errors">{errors.dietTypes}</span>
+                  <p className="errors">{errors.dietTypes}</p>
                 )}
               </div>
             </div>

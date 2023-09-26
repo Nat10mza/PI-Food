@@ -15,7 +15,6 @@ function Detail() {
     dispatch(getDetailRecipe(id));
   }, []);
 
-  console.log(recdetail);
   return (
     <>
       {loading === true ? (
@@ -54,13 +53,14 @@ function Detail() {
           </div>
 
           <div className={styles.stepsContainer}>
-            <h3 className="texts">Steps: </h3>
+            <h2 className="texts">Steps: </h2>
             <ul className="steps">
               {Array.isArray(recdetail.steps) ? (
                 recdetail.steps.map((e) => {
                   return (
                     <li key={e.number} className={styles.li}>
-                      . {e.step}
+                      <p className={styles.steps}>Step {e.number}</p>
+                      <h3 className={styles.text}>. {e.step}</h3>
                     </li>
                   );
                 })
