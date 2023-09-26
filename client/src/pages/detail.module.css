@@ -1,0 +1,37 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  width: 100%;
+  height: 100%;
+}
+.mainInfo {
+  display: flex;
+}
+.leftContainer {
+  width: 40%;
+}
+.rightContainer {
+  width: 60%;
+}
+.summaryContainer {
+}
+.summary {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.stepsContainer {
+}
+.imgForm {
+  width: 90%;
+  margin-top: 30px;
+  object-fit: cover;
+}
+.title {
+  font-size: 1.8em;
+}
+
+.li {
+  float: none;
+  white-space: inherit;
+}

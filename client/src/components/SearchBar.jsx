@@ -18,12 +18,13 @@ function SearchBar() {
   function handleSubmit(evt) {
     if (name && evt.key === "Enter") {
       evt.preventDefault();
-      history.push("/home");
       dispatch(searchRecipes(name, recipes));
+      history.push("/home");
     }
     if (name === "") {
       // evt.preventDefault();
       dispatch(resetRecipes(recipes));
+      history.push("/home");
     }
     dispatch(setPage(1));
   }

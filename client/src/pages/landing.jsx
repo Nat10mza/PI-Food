@@ -6,7 +6,7 @@ function Landing() {
   return (
     <div className={styles.hero}>
       <div className={styles.text}>
-        <h1 className={styles.title}>Bienvenido a Mi Food app</h1>
+        <h1 className={styles.title}>Bienvenido a Foodify</h1>
         <h3 className={styles.description}>
           {" "}
           Aqui podras encontrar, filtrar y ordenar tus recetas segun tus gustos!
