@@ -1,7 +1,7 @@
 const axios = require("axios");
 const db = require("../db");
 const { Diet, Recipe } = require("../db");
-const API_KEY = "c1f613ae99f946db8e30e237481bfaea";
+const { API_KEY } = process.env;
 
 async function getRecipesApi() {
   const recipes = await axios.get(
