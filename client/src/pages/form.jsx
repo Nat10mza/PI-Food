@@ -109,17 +109,17 @@ function Form() {
     <div className={styles.form}>
       {loading ? (
         <Loading />
-      ) : error ? (
-        <ErrorCard errorMessage={error} />
-      ) : dietTypes ? (
+      ) : // ) : error ? (
+      //   <ErrorCard errorMessage={error} />
+      dietTypes ? (
         <>
           <h1 className="msg">Create your own recipe!</h1>
           <form onSubmit={(e) => handleSubmit(e)}>
-            <div className="form">
-              <div className="prettierForm">
+            <div className={styles.formContainer}>
+              <section className={styles.leftContainer}>
                 <div className="nameInput">
                   <input
-                    className="inputs"
+                    className={styles.textInput}
                     name="name"
                     type="text"
                     placeholder="Name"
@@ -131,6 +131,7 @@ function Form() {
                 <div className="nameInput">
                   <textarea
                     placeholder="Summary"
+                    className={styles.textInput}
                     name="summary"
                     type="text"
                     rows="4"
@@ -142,6 +143,7 @@ function Form() {
                 </div>
                 <div className="nameInput">
                   <input
+                    className={styles.textInput}
                     placeholder="Image"
                     name="image"
                     type="text"
@@ -152,6 +154,7 @@ function Form() {
                 </div>
                 <div className="nameInput">
                   <input
+                    className={styles.textInput}
                     name="healthScore"
                     placeholder="Health Score"
                     type="number"
@@ -164,6 +167,7 @@ function Form() {
                 </div>
                 <div className="nameInput">
                   <textarea
+                    className={styles.textInput}
                     placeholder="Steps"
                     name="stepByStep"
                     type="text"
@@ -176,35 +180,40 @@ function Form() {
                     <p className="errors">{errors.stepByStep}</p>
                   )}
                 </div>
-              </div>
-              <div className="checkSelect">
-                <label className="msgs">Diet Types:</label>
-                {dietTypes.map((d) => {
-                  return (
-                    <div key={d.id} className="checks">
-                      <input
-                        className="checks"
-                        type="checkbox"
-                        name={d.name}
-                        value={d.name}
-                        selected={input.dietTypes.includes(d.name)}
-                        onChange={(e) => handleCheckBox(e)}
-                      />
-                      <label className="dietTypes">{d.name}</label>
-                    </div>
-                  );
-                })}
-                {errors.dietTypes && (
-                  <p className="errors">{errors.dietTypes}</p>
-                )}
-              </div>
+                <button className="submitButton" type="submit">
+                  Submit Recipe
+                </button>
+                <Link to="/home">
+                  <button className="goBackButton">Go back</button>
+                </Link>
+              </section>
+
+              <section className={styles.rightContainer}>
+                <div className="checkSelect">
+                  <label className="msgs">
+                    Select your recipe's diet type:
+                  </label>
+                  {dietTypes.map((d) => {
+                    return (
+                      <div key={d.id} className="checks">
+                        <input
+                          className="checks"
+                          type="checkbox"
+                          name={d.name}
+                          value={d.name}
+                          selected={input.dietTypes.includes(d.name)}
+                          onChange={(e) => handleCheckBox(e)}
+                        />
+                        <label className="dietTypes">{d.name}</label>
+                      </div>
+                    );
+                  })}
+                  {errors.dietTypes && (
+                    <p className="errors">{errors.dietTypes}</p>
+                  )}
+                </div>
+              </section>
             </div>
-            <button className="submitButton" type="submit">
-              Submit Recipe
-            </button>
-            <Link to="/home">
-              <button className="goBackButton">Go back</button>
-            </Link>
           </form>
         </>
       ) : null}

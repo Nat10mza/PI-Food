@@ -14,7 +14,7 @@
   font-size: 1.125rem;
   font-weight: bold;
   margin: 0 2px;
-  color: white;
+  color: #01280f;
   /* background-color: #04aa6d; */
 }
 .pager__item.active .pager__link {
@@ -41,7 +41,7 @@
   height: 2.625rem;
   line-height: 2.625rem;
   margin-left: -1px;
-  color: white;
+  color: #01280f;
   text-decoration: none;
   transition: 0.3s;
 }

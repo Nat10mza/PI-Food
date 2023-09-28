@@ -44,7 +44,7 @@ function Paged({ recipesPage, allRecipes, paged }) {
             >
               <g fill="none" fillRule="evenodd">
                 <path
-                  fill="#f1f1f1"
+                  fill="#01280F"
                   d="M7.41 1.41L6 0 0 6l6 6 1.41-1.41L2.83 6z"
                 ></path>
               </g>
@@ -68,7 +68,7 @@ function Paged({ recipesPage, allRecipes, paged }) {
             >
               <g fill="none" fillRule="evenodd">
                 <path
-                  fill="#f1f1f1"
+                  fill="#01280F"
                   d="M7.41 1.41L6 0 0 6l6 6 1.41-1.41L2.83 6z"
                 ></path>
               </g>

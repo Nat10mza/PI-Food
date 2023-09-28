@@ -7,12 +7,14 @@
 }
 .mainInfo {
   display: flex;
+  gap: 2.5em;
 }
 .leftContainer {
+  display: grid;
   width: 40%;
 }
 .rightContainer {
-  width: 60%;
+  width: 50%;
 }
 .summaryContainer {
 }
@@ -23,13 +25,12 @@
 .stepsContainer {
 }
 .imgForm {
-  width: 90%;
+  width: 100%;
   margin-top: 30px;
   object-fit: cover;
 }
 .title {
   font-size: 1.8em;
-  text-align: center;
 }
 
 .li {
@@ -46,4 +47,22 @@
 
 .text {
   margin-left: 30px;
+}
+.button {
+  background-color: #d2142d;
+  border: none;
+  color: #e8fdef;
+  cursor: pointer;
+  padding: 20px 40%;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.9s ease;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.button:hover {
+  transform: scale(1);
+  color: #e8fdef;
+  background-color: #42b36b;
 }

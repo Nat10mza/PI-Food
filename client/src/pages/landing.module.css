@@ -12,9 +12,10 @@
 }
 
 .button {
-  background-color: #d2142d;
+  background-color: #2d7648;
+  float: right;
   border: none;
-  color: #e8fdef;
+  color: #ffffff;
   cursor: pointer;
   padding: 20px 40px;
   border-radius: 20px;
@@ -27,7 +28,7 @@
 
 .button:hover {
   transform: scale(1.1);
-  color: #e8fdef;
+  color: #e6feef;
   background-color: #42b36b;
 }
 

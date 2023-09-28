@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDetailRecipe } from "../redux/actions";
 import Loading from "../components/Loading";
 import styles from "./detail.module.css";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function Detail() {
   const { id } = useParams();
@@ -21,7 +22,6 @@ function Detail() {
         <Loading />
       ) : (
         <div className={styles.form}>
-          <h1 className={styles.title}>{recdetail.name}</h1>
           <div className={styles.mainInfo}>
             <section className={styles.leftContainer}>
               <img
@@ -29,8 +29,12 @@ function Detail() {
                 alt={recdetail.name}
                 className={styles.imgForm}
               />
+              <Link to="/home">
+                <button className={styles.button}>Check more recipes!</button>
+              </Link>
             </section>
             <section className={styles.rightContainer}>
+              <h1 className={styles.title}>{recdetail.name}</h1>
               <h2>Health Score: {recdetail.healthScore}</h2>
 
               {recdetail.diets ? (
