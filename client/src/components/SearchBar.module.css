@@ -10,31 +10,31 @@
   right: 3%;
   transition: 0.9s ease;
   margin: 10px;
-  width: 180px;
+  width: 150px;
   padding: 10px;
   margin-right: 4.6%;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 1);
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .button {
   background-color: #d2142d;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 1);
   color: #e8fdef;
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 5px 10px;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: absolute;
   right: 5.7%;
-  transition: 0.5s ease;
+  transition: transform ease 0.8s, box-shadow ease 0.8s;
   top: 25px;
   margin: 10px;
 }
 
 .button:hover {
-  transform: scale(1.1);
+  z-index: 2;
   color: #e8fdef;
   background-color: #42b36b;
 }

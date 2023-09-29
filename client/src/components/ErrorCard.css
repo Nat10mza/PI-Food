@@ -45,17 +45,18 @@
 .message-content {
   top: 110%;
   position: relative;
+  color: #e8fdef;
 }
 
 .button {
   background-color: #d2142d;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 1);
   color: #e8fdef;
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: 0.9s ease;
+  transition: transform ease 0.2s, box-shadow ease 0.2s;
   position: relative;
   top: 50%;
   margin: 10px;

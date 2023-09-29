@@ -18,7 +18,7 @@ function validate(input) {
   if (input.healthScore < 1 || input.healthScore > 100)
     errors.healthScore = "The image must be a number between 1 and 100";
   if (!input.stepByStep.length)
-    errors.stepByStep = "Please detail the stepByStep for your recipe";
+    errors.stepByStep = "Please detail the steps of your recipe";
   if (!input.dietTypes.length)
     errors.dietTypes = "You must select at least one diet type";
   return errors;
@@ -60,31 +60,31 @@ function Form() {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     if (Object.values(errors).length > 0) {
-      alert("Please complete the information required");
-    } else if (
+      return alert("Please complete the information required");
+    }
+    if (
       input.name === "" &&
       input.summary === "" &&
       input.image === "" &&
       input.healthScore === "" &&
-      input.stepByStep === "" &&
+      input.stepByStep.length === 0 &&
       !input.dietTypes.length
     ) {
-      alert("Please complete the form");
-    } else {
-      dispatch(addRecipe(input));
-      alert("New recipe added successfully!");
-      setInput({
-        name: "",
-        summary: "",
-        image: "",
-        healthScore: "",
-        stepByStep: [],
-        dietTypes: [],
-      });
-      history.push("/home");
+      return alert("Please complete the form");
     }
+
+    dispatch(addRecipe(input));
+    alert("New recipe added successfully!");
+    setInput({
+      name: "",
+      summary: "",
+      image: "",
+      healthScore: "",
+      stepByStep: [],
+      dietTypes: [],
+    });
+    history.push("/home");
   }
 
   function handleCheckBox(e) {
@@ -126,20 +126,22 @@ function Form() {
                     value={input.name}
                     onChange={(e) => handleChange(e)}
                   />
-                  {errors.name && <p className="errors">{errors.name}</p>}
+                  {errors.name && (
+                    <p className={styles.errors}>{errors.name}</p>
+                  )}
                 </div>
                 <div className="nameInput">
-                  <textarea
+                  <input
                     placeholder="Summary"
                     className={styles.textInput}
                     name="summary"
                     type="text"
-                    rows="4"
-                    cols="40"
                     value={input.summary}
                     onChange={(e) => handleChange(e)}
                   />
-                  {errors.summary && <p className="errors">{errors.summary}</p>}
+                  {errors.summary && (
+                    <p className={styles.errors}>{errors.summary}</p>
+                  )}
                 </div>
                 <div className="nameInput">
                   <input
@@ -150,7 +152,9 @@ function Form() {
                     value={input.image}
                     onChange={(e) => handleChange(e)}
                   />
-                  {errors.image && <p className="errors">{errors.image}</p>}
+                  {errors.image && (
+                    <p className={styles.errors}>{errors.image}</p>
+                  )}
                 </div>
                 <div className="nameInput">
                   <input
@@ -162,42 +166,42 @@ function Form() {
                     onChange={(e) => handleChange(e)}
                   />
                   {errors.healthScore && (
-                    <p className="errors">{errors.healthScore}</p>
+                    <p className={styles.errors}>{errors.healthScore}</p>
                   )}
                 </div>
                 <div className="nameInput">
-                  <textarea
+                  <input
                     className={styles.textInput}
                     placeholder="Steps"
                     name="stepByStep"
                     type="text"
-                    rows="4"
-                    cols="40"
                     value={input.stepByStep}
                     onChange={(e) => handleChange(e)}
                   />
                   {errors.stepByStep && (
-                    <p className="errors">{errors.stepByStep}</p>
+                    <p className={styles.errors}>{errors.stepByStep}</p>
                   )}
                 </div>
-                <button className="submitButton" type="submit">
-                  Submit Recipe
-                </button>
-                <Link to="/home">
-                  <button className="goBackButton">Go back</button>
-                </Link>
+                <div className={styles.buttonsContainer}>
+                  <Link to="/home">
+                    <button className={styles.goBackBtn}>Go back</button>
+                  </Link>
+                  <button className={styles.sbtBtn} type="submit">
+                    Submit Recipe
+                  </button>
+                </div>
               </section>
 
               <section className={styles.rightContainer}>
                 <div className="checkSelect">
-                  <label className="msgs">
+                  <label className={styles.msgSelect}>
                     Select your recipe's diet type:
                   </label>
                   {dietTypes.map((d) => {
                     return (
                       <div key={d.id} className="checks">
                         <input
-                          className="checks"
+                          className={styles.checkbox}
                           type="checkbox"
                           name={d.name}
                           value={d.name}
@@ -209,7 +213,7 @@ function Form() {
                     );
                   })}
                   {errors.dietTypes && (
-                    <p className="errors">{errors.dietTypes}</p>
+                    <p className={styles.errors}>{errors.dietTypes}</p>
                   )}
                 </div>
               </section>

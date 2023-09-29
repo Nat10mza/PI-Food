@@ -53,6 +53,7 @@ a:focus {
 }
 .main a {
   font-weight: bolder;
+  color: #2d7648;
 }
 
 .logoContainer {

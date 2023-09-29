@@ -14,14 +14,16 @@
 .button {
   background-color: #2d7648;
   float: right;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 1);
   color: #ffffff;
   cursor: pointer;
   padding: 20px 40px;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: 0.9s ease;
+  transition: transform ease 0.2s, box-shadow ease 0.2s;
   position: relative;
+  border: 1px solid rgba(0, 0, 0, 1);
+  z-index: 2;
   top: 50%;
   margin: 10px;
 }
