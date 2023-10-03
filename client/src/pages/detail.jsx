@@ -9,12 +9,13 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 function Detail() {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.loading);
-  const recdetail = useSelector((state) => state.detailDiet);
 
   useEffect(() => {
     dispatch(getDetailRecipe(id));
   }, []);
+
+  const loading = useSelector((state) => state.loading);
+  const recdetail = useSelector((state) => state.detailDiet);
 
   return (
     <>
@@ -38,12 +39,9 @@ function Detail() {
               <h2>Health Score: {recdetail.healthScore}</h2>
 
               {recdetail.diets ? (
-                <h3>
-                  Diet:{" "}
-                  {recdetail.diets.map((e) => {
-                    return e.name;
-                  })}
-                </h3>
+                recdetail.diets.map((e) => {
+                  return <h3>{e.name}</h3>;
+                })
               ) : (
                 <h3>Diet: {recdetail.dietTypes}</h3>
               )}
@@ -61,10 +59,15 @@ function Detail() {
             <ul className="steps">
               {Array.isArray(recdetail.steps) ? (
                 recdetail.steps.map((e) => {
+                  let arrayinStep = e.step.split(".");
+                  arrayinStep.pop(); //split makes a empty string item in array
+
                   return (
                     <li key={e.number} className={styles.li}>
                       <p className={styles.steps}>Step {e.number}</p>
-                      <h3 className={styles.text}>. {e.step}</h3>
+                      {arrayinStep.map((s) => {
+                        return <h3 className={styles.text}>• {s}.</h3>;
+                      })}
                     </li>
                   );
                 })

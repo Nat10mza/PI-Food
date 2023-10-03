@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: 10px;
+  margin-right: 10px;
 }
 .input {
   /* position: absolute; */
@@ -27,9 +27,9 @@
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: absolute;
-  right: 5.7%;
+  right: 5.8%;
   transition: transform ease 0.8s, box-shadow ease 0.8s;
-  top: 25px;
+  top: 15px;
   margin: 10px;
 }
 

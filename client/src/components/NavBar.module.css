@@ -1,5 +1,6 @@
 .NavBar {
-  padding: 15px 0;
+  padding-top: 15px;
+  height: 60px;
   display: flex;
 }
 .ContainerText {

@@ -67,10 +67,25 @@ const getApiRecId = async (id) => {
   const info = await axios.get(
     `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`
   );
+
+  let dietsWithComa = [];
+
+  for (let i = 0; i < info.data.diets.length; i++) {
+    const diet = info.data.diets[i];
+    console.log(i);
+    console.log(diet);
+    dietsWithComa.push(diet);
+    if (i === info.data.diets.length - 1) {
+      dietsWithComa.push(".");
+      break;
+    }
+    dietsWithComa.push(", ");
+  }
+
   return {
     image: info.data.image,
     name: info.data.title,
-    dietTypes: info.data.diets,
+    dietTypes: dietsWithComa,
     summary: info.data.summary,
     score: info.data.spoonacularScore,
     healthScore: info.data.healthScore,
@@ -94,7 +109,7 @@ const getDbById = async (id) => {
     },
   });
 };
-// getRecipesApi().then((v) => console.log(v));
+// getApiRecId().then((v) => console.log(v.dietTypes));
 
 module.exports = {
   getRecipesApi,
