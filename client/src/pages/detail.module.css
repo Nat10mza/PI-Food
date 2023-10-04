@@ -23,18 +23,32 @@
   width: -moz-fit-content;
   width: fit-content;
   text-align: justify;
-  font-size: 3vh;
+  font-size: 1em;
 }
 .stepsContainer {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #e0f6e8;
+  border-width: 4px 4px 4px 4px;
+  border-color: black;
+  border-radius: 15px;
 }
+
+.stepTitle {
+  margin: 5px;
+}
+
 .imgForm {
   width: -moz-fit-content;
   width: fit-content;
   margin-top: 30px;
   object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 1);
 }
 .title {
-  font-size: 1.8em;
+  font-size: 2em;
+  font-weight: bolder;
+  text-decoration: underline;
 }
 
 .li {

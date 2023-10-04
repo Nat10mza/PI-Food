@@ -9,8 +9,17 @@
   border-width: 4px 4px 4px 4px;
   border-color: black;
   border-radius: 15px;
+  transition: transform ease 0.2s, box-shadow ease 0.2s;
   /* box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2); */
   text-align: left;
+}
+
+.Card:hover {
+  transform: scale(1.1);
+  background-color: #2d7648;
+}
+.Card:hover .title {
+  color: #e6feef;
 }
 
 .img {
@@ -19,8 +28,22 @@
   border-radius: 15px 15px 0 0;
 }
 
+.textContainer {
+  height: 30%;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
 .title {
-  margin: 0%;
-  margin-left: 5px;
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+
   /* text-align: justify; */
+  text-align: center;
 }

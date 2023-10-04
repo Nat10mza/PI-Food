@@ -55,8 +55,8 @@ function Detail() {
           </div>
 
           <div className={styles.stepsContainer}>
-            <h2 className="texts">Steps: </h2>
-            <ul className="steps">
+            <h2 className={styles.stepTitle}>How to make: </h2>
+            <ul className={styles.stepTitle}>
               {Array.isArray(recdetail.steps) ? (
                 recdetail.steps.map((e) => {
                   let arrayinStep = e.step.split(".");

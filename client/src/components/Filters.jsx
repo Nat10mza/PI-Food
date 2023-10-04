@@ -33,6 +33,8 @@ function Filters() {
     <div className="Container">
       {/* <label className="filters">Diet Types:</label> */}
       <div className="wrapper">
+        <label className="filters">Filter:</label>
+
         <select
           className="select"
           name="diets"
