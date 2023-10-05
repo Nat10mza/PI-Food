@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@fontsource/montserrat": "^5.0.12",
     "dotenv": "^16.3.1"
   }
 }
