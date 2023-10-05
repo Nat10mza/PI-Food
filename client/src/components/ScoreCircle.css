@@ -39,15 +39,13 @@
 }
 
 .midScore {
-  color: aqua;
-  font-size: 1em;
-  font-weight: bold;
-  text-shadow: -1px 0 #e6feef, 0 1px #e6feef, 1px 0 #e6feef, 0 -1px#e6feef;
-}
-
-.normalScore {
   color: black;
   font-size: 1em;
   font-weight: bold;
-  text-shadow: -1px 0 #e6feef, 0 1px #e6feef, 1px 0 #e6feef, 0 -1px#e6feef;
+}
+
+.normalScore {
+  color: #e6feef;
+  font-size: 1em;
+  font-weight: bold;
 }

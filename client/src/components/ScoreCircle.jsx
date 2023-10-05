@@ -8,7 +8,7 @@ function ScoreCirle({ score, icon, iconsStyle }) {
   }
 
   function changeScoreColor(score) {
-    if (67 > score > 33) return "midScore";
+    if (score > 33 && score < 67) return "midScore";
     return "normalScore";
   }
 
