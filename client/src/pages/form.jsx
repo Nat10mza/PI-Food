@@ -109,9 +109,9 @@ function Form() {
     <div className={styles.form}>
       {loading ? (
         <Loading />
-      ) : // ) : error ? (
-      //   <ErrorCard errorMessage={error} />
-      dietTypes ? (
+      ) : error ? (
+        <ErrorCard errorMessage={error} />
+      ) : dietTypes ? (
         <>
           <h1 className="msg">Create your own recipe!</h1>
           <form onSubmit={(e) => handleSubmit(e)}>
