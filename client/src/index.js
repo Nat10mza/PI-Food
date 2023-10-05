@@ -6,6 +6,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import "@fontsource/montserrat"; // Defaults to weight 400
+import "@fontsource/montserrat/300.css"; // Specify weight
+import "@fontsource/montserrat/300-italic.css"; // Specify weight and style
 
 ReactDOM.render(
   <React.StrictMode>

@@ -19,6 +19,8 @@ $option: E6FEEF;
 }
 
 .filters {
+  display: flex;
+  align-items: center;
   text-align: center;
   font-size: 1.5em;
 }
@@ -54,4 +56,14 @@ select {
   &::-ms-expand {
     display: none;
   }
+}
+
+.filterLogo {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.sortIcon {
+  height: 1.2em;
+  width: 1.2em;
 }

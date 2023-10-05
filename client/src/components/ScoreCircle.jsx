@@ -1,15 +1,21 @@
 import "./ScoreCircle.css";
 
-function ScoreCirle({ score }) {
-  function checkhealthScore() {
+function ScoreCirle({ score, icon, iconsStyle }) {
+  function checkhealthScore(score) {
     if (score > 67) return "ContainerScore healthy";
     if (score > 33) return "ContainerScore mid";
     return "ContainerScore nothealthy ";
   }
 
+  function changeScoreColor(score) {
+    if (67 > score > 33) return "midScore";
+    return "normalScore";
+  }
+
   return (
     <div className={checkhealthScore(score)}>
-      <p className="score">{score}</p>
+      <p className={changeScoreColor(score)}>{score}</p>
+      {<img src={icon} alt="" className={iconsStyle} />}
     </div>
   );
 }

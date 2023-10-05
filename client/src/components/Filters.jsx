@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./Filters.scss";
+import filterIcon from "../images/filterIcon.png";
+import sortIcon from "../images/sortIcon.png";
 import {
   filterDiets,
   setPage,
@@ -33,7 +35,10 @@ function Filters() {
     <div className="Container">
       {/* <label className="filters">Diet Types:</label> */}
       <div className="wrapper">
-        <label className="filters">Filter:</label>
+        <label className="filters">
+          <img src={filterIcon} alt="" className="filterLogo" />
+          Filter:
+        </label>
 
         <select
           className="select"
@@ -48,7 +53,10 @@ function Filters() {
             return <option value={diet.name}>{diet.name}</option>;
           })}
         </select>
-        <label className="filters">Sort:</label>
+        <label className="filters">
+          <img src={sortIcon} alt="" className="sortIcon" />
+          Sort:
+        </label>
         <select
           className="select"
           name="alphabetical"
