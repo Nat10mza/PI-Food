@@ -18,7 +18,7 @@ export function getRecipes() {
   return async function (dispatch) {
     dispatch({ type: SET_LOADING }); // Cambiar loading a true
     return axios
-      .get(`http://localhost:3001/recipes`)
+      .get(`/recipes`)
       .then((response) => {
         dispatch({ type: GET_RECIPES, payload: response.data });
       })
@@ -48,7 +48,7 @@ export function getRecipes() {
 //     dispatch({ type: SET_LOADING });
 
 //     try {
-//       const response = await fetch("http://localhost:3001/recipes");
+//       const response = await fetch("/recipes");
 
 //       if (!response.ok) {
 //         const errorData = await response.json();
@@ -70,7 +70,7 @@ export function getDiets() {
   return async function (dispatch) {
     dispatch({ type: SET_LOADING }); // Cambiar loading a true
     return axios
-      .get(`http://localhost:3001/diets`)
+      .get(`/diets`)
       .then((response) => {
         dispatch({ type: GET_DIETS, payload: response.data });
       })
@@ -99,7 +99,7 @@ export function getDetailRecipe(id) {
   return async function (dispatch) {
     dispatch({ type: SET_LOADING }); // Cambiar loading a true
     return axios
-      .get(`http://localhost:3001/recipes/${id}`)
+      .get(`/recipes/${id}`)
       .then((response) => {
         dispatch({ type: GET_DETAIL_DIET, payload: response.data });
       })
@@ -126,7 +126,7 @@ export function getDetailRecipe(id) {
 
 export function addRecipe(payload) {
   return async function (dispatch) {
-    let api = await axios.post(`http://localhost:3001/recipes`, payload);
+    let api = await axios.post(`/recipes`, payload);
     return api.data;
   };
 }
