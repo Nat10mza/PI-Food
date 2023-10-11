@@ -7,7 +7,9 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Landing from "./pages/landing";
 import axios from "axios";
-axios.defaults.baseURL = "https://pi-food-production-44e5.up.railway.app/";
+import Footer from "./components/Footer";
+// axios.defaults.baseURL = "https://pi-food-production-44e5.up.railway.app/";
+axios.defaults.baseURL = "http://localhost:3001/";
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
       <Route path="/recipe/:id" component={Detail} />
       <Route path="/form" component={Form} />
       <Route path="/about" component={About} />
+      <Footer />
     </div>
   );
 }

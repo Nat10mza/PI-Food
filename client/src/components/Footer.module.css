@@ -1,0 +1,86 @@
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #dbf1e4;
+  color: white;
+
+  border-radius: 15px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.leftContainer,
+.rightContainer {
+  flex: 1;
+  text-align: center;
+}
+
+.leftContainer {
+  text-align: left;
+  display: inline-flex;
+  gap: 1em;
+}
+
+.rightContainer {
+  /* display: inline-flex; */
+  text-align: right;
+}
+
+.conectList {
+  display: flex;
+}
+
+ul {
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  align-items: center;
+}
+
+.namelink:hover {
+  color: #d2142d;
+  cursor: pointer;
+}
+.h5Center {
+  display: flex;
+  align-items: center;
+}
+
+.aLink {
+  padding: 0;
+  transition: transform 0.7s ease-in-out;
+}
+
+.aLink:hover {
+  transform: rotate(360deg) scale(1.3);
+}
+
+.conectList {
+  float: right;
+  gap: 0.5em;
+}
+
+.argLogo {
+  height: 1.1em;
+}
+
+.linkedinLogo {
+  height: 2em;
+}
+.githubLogo {
+  height: 2.5em;
+}
+.personalLogo {
+  /* margin-left: auto; */
+  width: 13em;
+}

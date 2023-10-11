@@ -9,7 +9,7 @@ function Landing() {
         <h1 className={styles.title}>Bienvenido a Foodify</h1>
         <h3 className={styles.description}>
           {" "}
-          Aqui podras encontrar, filtrar y ordenar tus recetas segun tus gustos!
+          Aqui podrás encontrar, filtrar y ordenar tus recetas según tus gustos!
         </h3>
         <div>
           <Link to="/home">

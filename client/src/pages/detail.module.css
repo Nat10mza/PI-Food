@@ -15,7 +15,7 @@
   width: fit-content;
 }
 .rightContainer {
-  width: 50%;
+  width: 60%;
 }
 .summaryContainer {
 }
@@ -26,6 +26,7 @@
   font-size: 1em;
 }
 .stepsContainer {
+  width: 100%;
   margin-top: 5px;
   margin-bottom: 5px;
   background-color: #e0f6e8;
