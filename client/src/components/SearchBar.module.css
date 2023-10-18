@@ -1,24 +1,25 @@
 .SearchBar {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  margin-right: 10px;
 }
 .input {
-  /* position: absolute; */
-  top: 15px;
-  right: 3%;
+  position: relative;
+  /* top: 25px; */
+  /* right: 5%; */
   transition: 0.9s ease;
-  margin: 10px;
+  /* margin: 10px; */
   width: 150px;
   padding: 10px;
-  margin-right: 4.6%;
+
   border: 1px solid rgba(0, 0, 0, 1);
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .button {
+  position: relative;
+  /* top: 15px; */
+  /* right: 3%; */
   background-color: #d2142d;
   border: 1px solid rgba(0, 0, 0, 1);
   color: #e8fdef;
@@ -26,10 +27,7 @@
   padding: 5px 10px;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  right: 5.8%;
   transition: transform ease 0.8s, box-shadow ease 0.8s;
-  top: 15px;
   margin: 10px;
 }
 

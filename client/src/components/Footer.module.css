@@ -8,6 +8,9 @@ footer {
 
   border-radius: 15px;
 }
+.FooterAnimation {
+  animation: 1.5s 0s 1 slideFromBottom;
+}
 
 .container {
   display: flex;
@@ -58,11 +61,11 @@ ul {
 
 .aLink {
   padding: 0;
-  transition: transform 0.7s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .aLink:hover {
-  transform: rotate(360deg) scale(1.3);
+  transform: scale(1.3);
 }
 
 .conectList {
@@ -75,12 +78,23 @@ ul {
 }
 
 .linkedinLogo {
-  height: 2em;
+  height: 1.5em;
 }
 .githubLogo {
-  height: 2.5em;
+  height: 2em;
 }
 .personalLogo {
   /* margin-left: auto; */
   width: 13em;
+}
+
+@keyframes slideFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

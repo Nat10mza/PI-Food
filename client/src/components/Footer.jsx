@@ -3,10 +3,17 @@ import personalLogo from "../images/Nico_logo_Transparent_white.png";
 import github from "../images/GitHub-Mark-removebg-preview.png";
 import linkedin from "../images/LinkedIn_icon.png";
 import arg from "../images/arg.png";
+import { useSelector } from "react-redux";
 
 function Footer() {
+  const animationLanding = useSelector((state) => state.animationOnLanding);
+
+  function checkAnimationState() {
+    if (animationLanding === true) return styles.FooterAnimation;
+    return;
+  }
   return (
-    <footer>
+    <footer className={checkAnimationState()}>
       <div className={styles.container}>
         <section className={styles.leftContainer}>
           <h5>
@@ -29,7 +36,9 @@ function Footer() {
         <section className={styles.rightContainer}>
           <ul className={styles.conectList}>
             <li>
-              <a href="https://github.com/Nat10mza">LET'S CONNECT!</a>
+              <a href="https://www.linkedin.com/in/nicolas-tramontina/">
+                LET'S CONNECT!
+              </a>
             </li>
             <li>
               <a

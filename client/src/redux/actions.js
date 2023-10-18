@@ -12,6 +12,7 @@ import {
   SET_PAGE,
   SORT_BY_ALPHABETICAL,
   SORT_BY_SCORE,
+  LANDING_ANIMATION,
 } from "./typeactions";
 
 export function getRecipes() {
@@ -27,10 +28,17 @@ export function getRecipes() {
           // Error de respuesta HTTP con código de estado no exitoso
           dispatch({ type: ERROR_GET_RECIPES, error: error.response.data });
         } else if (error.request) {
+          if (error.request.withCredentials === false)
+            dispatch({
+              type: ERROR_GET_RECIPES,
+              error:
+                "we no longer have api daily points, leave a message to Nico :)",
+            });
           // Error de solicitud sin respuesta del servidor
           dispatch({
             type: ERROR_GET_RECIPES,
-            error: "An error has occured, try later :(",
+            error:
+              "An error has occured, leave a message to Nico and try later :)",
           });
         } else {
           // Otros errores
@@ -80,15 +88,23 @@ export function getDiets() {
           dispatch({ type: ERROR_GET_DIETS, error: error.response.data });
         } else if (error.request) {
           // Error de solicitud sin respuesta del servidor
+          if (error.request.withCredentials === false)
+            dispatch({
+              type: ERROR_GET_DIETS,
+              error:
+                "we no longer have api daily points, leave a message to Nico :)",
+            });
+          // Error de solicitud sin respuesta del servidor
           dispatch({
             type: ERROR_GET_DIETS,
-            error: "An error has occured, try later :(",
+            error:
+              "An error has occured, leave a message to Nico and try later :)",
           });
         } else {
           // Otros errores
           dispatch({
             type: ERROR_GET_RECIPES,
-            error: "Ocurrió un error desconocido",
+            error: "Unknokn error",
           });
         }
       });
@@ -117,7 +133,7 @@ export function getDetailRecipe(id) {
           // Otros errores
           dispatch({
             type: ERROR_GET_RECIPES,
-            error: "Ocurrió un error desconocido",
+            error: "Unknokn error",
           });
         }
       });
@@ -195,6 +211,14 @@ export function setLoading(boolean) {
     return dispatch({
       type: SET_LOADING,
       payload: boolean,
+    });
+  };
+}
+
+export function setAnimationOnLanding() {
+  return function (dispatch) {
+    return dispatch({
+      type: LANDING_ANIMATION,
     });
   };
 }

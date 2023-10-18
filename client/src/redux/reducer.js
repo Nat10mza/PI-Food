@@ -11,6 +11,7 @@ import {
   SET_PAGE,
   SORT_BY_ALPHABETICAL,
   SORT_BY_SCORE,
+  LANDING_ANIMATION,
 } from "./typeactions";
 
 export const initialState = {
@@ -18,6 +19,7 @@ export const initialState = {
   allrecipes: [],
   dietTypes: [],
   detailDiet: {},
+  animationOnLanding: false,
   loading: false,
   page: 1,
   error: null,
@@ -25,9 +27,15 @@ export const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case LANDING_ANIMATION:
+      return {
+        ...state,
+        animationOnLanding: true,
+      };
     case GET_RECIPES:
       return {
         ...state,
+        animationOnLanding: false,
         recipes: action.payload,
         allrecipes: action.payload,
         error: null,
@@ -36,6 +44,7 @@ function rootReducer(state = initialState, action) {
     case ERROR_GET_RECIPES: {
       return {
         ...state,
+        animationOnLanding: false,
         recipes: [],
         allrecipes: [], // Vaciar las recetas en caso de error
         error: action.error,
@@ -45,6 +54,7 @@ function rootReducer(state = initialState, action) {
     case GET_DIETS:
       return {
         ...state,
+        animationOnLanding: false,
         dietTypes: action.payload,
         error: null,
         loading: false,
@@ -52,6 +62,7 @@ function rootReducer(state = initialState, action) {
     case GET_DETAIL_DIET:
       return {
         ...state,
+        animationOnLanding: false,
         detailDiet: action.payload,
         error: null,
         loading: false,
@@ -59,6 +70,7 @@ function rootReducer(state = initialState, action) {
     case ERROR_GET_DIETS: {
       return {
         ...state,
+        animationOnLanding: false,
         dietTypes: [],
         // Vaciar las dietas en caso de error
         error: action.error,
@@ -68,21 +80,25 @@ function rootReducer(state = initialState, action) {
     case SEARCH_RECIPE:
       return {
         ...state,
+        animationOnLanding: false,
         recipes: action.payload,
       };
     case RESET_RECIPES:
       return {
         ...state,
+        animationOnLanding: false,
         recipes: action.payload,
       };
     case SET_PAGE:
       return {
         ...state,
+        animationOnLanding: false,
         page: action.payload,
       };
     case SET_LOADING:
       return {
         ...state,
+        animationOnLanding: false,
         loading: true,
       };
     case FILTER_DIETS:

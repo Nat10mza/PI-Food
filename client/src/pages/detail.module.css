@@ -24,11 +24,12 @@
   width: fit-content;
   text-align: justify;
   font-size: 1em;
+  line-height: 1.25em;
 }
 .stepsContainer {
   width: 100%;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 80px;
   background-color: #e0f6e8;
   border-width: 4px 4px 4px 4px;
   border-color: black;
@@ -64,7 +65,13 @@
   margin-left: 15px;
 }
 
+.h3 {
+  font-size: 1em;
+}
+
 .text {
+  font-size: 1em;
+  font-weight: normal;
   margin-left: 30px;
 }
 .button {

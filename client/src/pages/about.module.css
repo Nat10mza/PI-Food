@@ -1,0 +1,95 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-200%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.aboutContainer {
+  display: flex;
+  height: 85vh;
+  align-items: center;
+  justify-content: space-between;
+}
+.leftContainer {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.img {
+  width: 20em;
+  border-radius: 50%;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 1);
+  animation: 2s ease-out 0s 1 slideFromLeft;
+}
+
+.rigthContainer {
+  width: 65%;
+  display: grid;
+  animation: 2.5s ease-out 0s 1 fadeIn;
+}
+
+.text {
+}
+
+.h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.h3 {
+  text-align: justify;
+  line-height: 1.52em;
+}
+
+.logosContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  /* margin: 1em; */
+}
+.logo1,
+.logo2,
+.logo3,
+.logo4 {
+  height: 5em;
+  opacity: 0;
+}
+
+.logo1 {
+  animation: 2s ease-out 0s 1 slideFromLeft;
+  animation-fill-mode: forwards;
+}
+
+.logo2 {
+  animation: 2s ease-out 1.5s 1 slideFromLeft;
+  animation-fill-mode: forwards;
+}
+
+.logo3 {
+  animation: 2s ease-out 3s 1 slideFromLeft;
+  animation-fill-mode: forwards;
+}
+
+.logo4 {
+  animation: 2s ease-out 4.5s 1 slideFromLeft;
+  animation-fill-mode: forwards;
+}

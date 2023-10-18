@@ -113,7 +113,7 @@ function Form() {
         <ErrorCard errorMessage={error} />
       ) : dietTypes ? (
         <>
-          <h1 className="msg">Create your own recipe!</h1>
+          <h1 className={styles.title}>Create your own recipe!</h1>
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className={styles.formContainer}>
               <section className={styles.leftContainer}>

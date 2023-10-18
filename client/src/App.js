@@ -8,8 +8,7 @@ import About from "./pages/about";
 import Landing from "./pages/landing";
 import axios from "axios";
 import Footer from "./components/Footer";
-// axios.defaults.baseURL = "https://pi-food-production-44e5.up.railway.app/";
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://pi-food-production-44e5.up.railway.app/";
 
 function App() {
   return (

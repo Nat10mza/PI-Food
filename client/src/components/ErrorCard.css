@@ -1,7 +1,6 @@
 .page_404 {
   padding: 40px 0;
   background: transparent;
-  font-family: "Arvo", serif;
 }
 
 .page_404 img {
@@ -15,8 +14,8 @@
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 498px;
   background-position: center;
   /* margin: px; */
 }
@@ -60,6 +59,7 @@
   position: relative;
   top: 50%;
   margin: 10px;
+  margin-bottom: 85px;
 }
 .button:hover {
   transform: scale(1.1);

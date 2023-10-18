@@ -1,9 +1,19 @@
 .NavBar {
+  display: flex;
+  height: 60px;
+  width: 100%;
+  padding-top: 15px;
+  align-items: center;
+}
+
+.NavBarAnimation {
   padding-top: 15px;
   height: 60px;
   display: flex;
   align-items: center;
+  animation: 1.5s 0s 1 slideFromTop;
 }
+
 .ContainerText {
   width: 80%;
 }
@@ -77,4 +87,15 @@ a:focus {
 }
 .items {
   margin-left: 3%;
+}
+
+@keyframes slideFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

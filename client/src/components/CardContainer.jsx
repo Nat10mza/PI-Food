@@ -6,8 +6,8 @@ function CardContainer({ recipes }) {
   // console.log(recipes.recipes);
   const page = useSelector((state) => state.page);
 
-  const quantityRecipesPage = page * 9;
-  const firstRecipePage = quantityRecipesPage - 9;
+  const quantityRecipesPage = page * 10;
+  const firstRecipePage = quantityRecipesPage - 10;
 
   if (recipes.message) return null;
   recipes = recipes.slice(firstRecipePage, quantityRecipesPage);

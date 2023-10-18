@@ -38,11 +38,17 @@ function Home() {
         <ErrorCard errorMessage={error} />
       ) : recipes ? (
         <>
-          <Filters />
-          <section>
-            <CardContainer recipes={recipes}></CardContainer>
-            <Paged recipesPage={9} allRecipes={recipes.length} paged={paged} />
-          </section>
+          <main className={styles.mainContainer}>
+            <Filters />
+            <section>
+              <CardContainer recipes={recipes}></CardContainer>
+              <Paged
+                recipesPage={10}
+                allRecipes={recipes.length}
+                paged={paged}
+              />
+            </section>
+          </main>
         </>
       ) : null}
     </div>

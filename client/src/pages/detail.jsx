@@ -36,17 +36,19 @@ function Detail() {
             </section>
             <section className={styles.rightContainer}>
               <h1 className={styles.title}>{recdetail.name}</h1>
-              <h2>Health Score: {recdetail.healthScore}</h2>
+              <h3 className={styles.h3}>
+                Health Score: {recdetail.healthScore}
+              </h3>
 
               {recdetail.diets ? (
                 recdetail.diets.map((e) => {
-                  return <h3>{e.name}</h3>;
+                  return <h3 className={styles.h3}>{e.name}</h3>;
                 })
               ) : (
-                <h3>Diet: {recdetail.dietTypes}</h3>
+                <h3 className={styles.h3}>Diet: {recdetail.dietTypes}</h3>
               )}
               <div className={styles.summaryContainer}>
-                <h3 className="texts">Summary: </h3>
+                <h3 className={styles.h3}>Summary: </h3>
                 <p className={styles.summary}>
                   {recdetail.summary?.replace(/<[^>]*>/g, "")}
                 </p>
@@ -55,12 +57,16 @@ function Detail() {
           </div>
 
           <div className={styles.stepsContainer}>
-            <h2 className={styles.stepTitle}>How to make: </h2>
+            <h1 className={styles.stepTitle}>How to make: </h1>
             <ul className={styles.stepTitle}>
               {Array.isArray(recdetail.steps) ? (
                 recdetail.steps.map((e) => {
-                  let arrayinStep = e.step.split(".");
-                  arrayinStep.pop(); //split makes a empty string item in array
+                  let arrayinStep = e.step
+                    .split(".")
+                    .filter((item) => item !== "");
+
+                  console.log(arrayinStep);
+                  //split makes a empty string item in array
 
                   return (
                     <li key={e.number} className={styles.li}>

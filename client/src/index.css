@@ -2,13 +2,13 @@ body {
   min-height: 95vh;
   min-height: -webkit-fill-available;
   min-height: fill-available;
-  min-width: 95vw;
+  /* min-width: 95vw; */
   background-color: #e6feef;
-  margin: 0;
   font-family: "Montserrat";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  margin: 0 5%;
 }
 html {
   height: -webkit-fill-available;

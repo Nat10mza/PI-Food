@@ -1,15 +1,26 @@
 import { Link } from "react-router-dom";
 import styles from "./landing.module.css";
 import logo from "../images/logo.png";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { setAnimationOnLanding } from "../redux/actions";
 
 function Landing() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setAnimationOnLanding());
+  }, [dispatch]);
+
   return (
     <div className={styles.hero}>
       <div className={styles.text}>
-        <h1 className={styles.title}>Bienvenido a Foodify</h1>
+        <h1 className={styles.title}>
+          Welcome to <h1 className={styles.gradientTitle}>Foodify</h1>
+        </h1>
         <h3 className={styles.description}>
           {" "}
-          Aqui podrás encontrar, filtrar y ordenar tus recetas según tus gustos!
+          Here you can find recipes according to your needs and tastes!
         </h3>
         <div>
           <Link to="/home">

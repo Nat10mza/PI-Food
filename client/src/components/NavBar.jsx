@@ -2,10 +2,17 @@ import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import SearchBar from "./SearchBar";
 import logo from "../images/logo.png";
+import { useSelector } from "react-redux";
 
 function NavBar() {
+  const animationLanding = useSelector((state) => state.animationOnLanding);
+
+  function checkAnimationState() {
+    if (animationLanding === true) return styles.NavBarAnimation;
+    return styles.NavBar;
+  }
   return (
-    <div className={styles.NavBar}>
+    <div className={checkAnimationState()}>
       <section className={styles.ContainerText}>
         <ul>
           <li className={styles.main}>
