@@ -16,12 +16,16 @@
 
 .ContainerText {
   width: 80%;
+  display: flex;
+  align-items: center;
 }
 .ContainerSearchBar {
   width: 20%;
 }
 
 ul {
+  display: flex;
+  align-items: center;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -63,15 +67,13 @@ a:focus {
 
 .main {
   display: flex;
-}
-.main a {
-  font-weight: bolder;
-  font-size: 1.2em;
-  color: #2d7648;
+  align-items: center;
+  margin-right: 5%;
 }
 
 .mainText {
-  margin-left: 10px;
+  font-weight: bolder;
+  font-size: 1.3em;
 }
 
 .logoContainer {
@@ -79,14 +81,35 @@ a:focus {
 }
 .logo {
   width: 60px;
-  /* height: 60px; */
   transition: transform 0.7s ease-in-out;
 }
 .main:hover .logo {
   transform: rotate(360deg);
 }
 .items {
-  margin-left: 3%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hamburguerMenu {
+  display: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #01280f;
+}
+
+.navMenu {
 }
 
 @keyframes slideFromTop {
@@ -97,5 +120,97 @@ a:focus {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0.2;
+    transform: translateY(-40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .main {
+    margin-right: 0;
+  }
+
+  .navMenu {
+    display: none;
+  }
+  .NavBarAnimation {
+    justify-content: center;
+  }
+  .activenavMenu {
+    display: flex;
+  }
+
+  .ContainerText {
+    display: inline-flex;
+  }
+  .hamburguerMenu {
+    margin-left: auto;
+    display: block;
+    background-color: transparent;
+  }
+
+  .items {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    z-index: 1;
+
+    background-color: #e6feeee0;
+    flex-direction: column;
+    animation: 1s 0s 1 slideFromLeft;
+  }
+
+  .ContainerSearchBar {
+    display: none;
+  }
+
+  .activehamburguerMenu {
+    margin-left: auto;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+
+  .NavBar {
+    flex-direction: column;
+  }
+  .activehamburguerMenu,
+  .ContainerText {
+    display: block;
+  }
+
+  .activehamburguerMenu .bar:nth-child(2) {
+    opacity: 0;
+    background-color: transparent;
+  }
+  .activehamburguerMenu .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .activehamburguerMenu .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  .navMenu {
+    /* position: fixed; */
+    /* display: none; */
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    background-color: aqua;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+  }
+  .navMenu.active {
+    left: 0;
   }
 }

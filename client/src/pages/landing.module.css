@@ -95,3 +95,29 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 1020px) {
+  .hero {
+    flex-direction: column-reverse;
+    justify-content: center;
+    height: auto;
+    gap: 0;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img {
+    height: 40vh;
+    width: 40vh;
+    object-fit: fill;
+  }
+
+  .description {
+    text-align: center;
+  }
+}

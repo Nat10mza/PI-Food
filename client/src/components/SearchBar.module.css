@@ -1,6 +1,7 @@
 .SearchBar {
   display: flex;
   align-items: center;
+  float: right;
 }
 .input {
   position: relative;
