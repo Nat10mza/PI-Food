@@ -34,36 +34,27 @@ function Footer() {
           </h5>
         </section>
         <section className={styles.rightContainer}>
-          <ul className={styles.conectList}>
-            <li>
-              <a href="https://www.linkedin.com/in/nicolas-tramontina/">
-                LET'S CONNECT!
-              </a>
-            </li>
-            <li>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.linkedin.com/in/nicolas-tramontina/"
-                className={styles.aLink}
-              >
-                <img src={linkedin} alt="" className={styles.linkedinLogo} />
-              </a>
-            </li>
-            <li>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/Nat10mza"
-                className={styles.aLink}
-              >
-                <img src={github} alt="" className={styles.githubLogo} />
-              </a>
-            </li>
-            <li>
-              <img src={personalLogo} alt="" className={styles.personalLogo} />
-            </li>
-          </ul>
+          <div className={styles.conectList}>
+            <img src={personalLogo} alt="" className={styles.personalLogo} />
+
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.linkedin.com/in/nicolas-tramontina/"
+              className={styles.aLink}
+            >
+              <img src={linkedin} alt="" className={styles.linkedinLogo} />
+            </a>
+
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/Nat10mza"
+              className={styles.aLink}
+            >
+              <img src={github} alt="" className={styles.githubLogo} />
+            </a>
+          </div>
         </section>
       </div>
     </footer>

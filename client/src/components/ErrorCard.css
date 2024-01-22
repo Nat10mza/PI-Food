@@ -42,7 +42,7 @@
   height: 500px;
 }
 .message-content {
-  top: 110%;
+  top: 80%;
   position: relative;
   color: #e8fdef;
 }
@@ -69,4 +69,5 @@
 
 .text-center {
   text-align: center;
+  margin-top: 20px;
 }

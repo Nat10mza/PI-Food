@@ -8,8 +8,10 @@
 }
 
 .form {
-  display: grid;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100vh;
 }
 
 .title {
@@ -28,7 +30,7 @@
   box-shadow: 15px 15px 1px #d2142d, 15px 15px 1px 2px rgba(0, 0, 0, 1);
 }
 .rightContainer {
-  width: 100%;
+  width: 40%;
   border: 2px;
   background: #e6feef;
   /* #0a351a */
@@ -116,4 +118,13 @@
 
 .diets {
   display: block;
+}
+
+@media screen and (max-width: 780px) {
+  .formContainer {
+    flex-direction: column;
+  }
+  .leftContainer {
+    width: 70%;
+  }
 }

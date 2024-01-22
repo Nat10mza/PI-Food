@@ -15,9 +15,8 @@ function Landing() {
   return (
     <div className={styles.hero}>
       <div className={styles.text}>
-        <h1 className={styles.title}>
-          Welcome to <h1 className={styles.gradientTitle}>Foodify</h1>
-        </h1>
+        <h1 className={styles.title}>Welcome to</h1>
+        <h1 className={styles.gradientTitle}>Foodify</h1>
         <h3 className={styles.description}>
           {" "}
           Here you can find recipes according to your needs and tastes!

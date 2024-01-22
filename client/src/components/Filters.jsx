@@ -35,50 +35,54 @@ function Filters() {
     <div className="Container">
       {/* <label className="filters">Diet Types:</label> */}
       <div className="wrapper">
-        <label className="filters">
-          <img src={filterIcon} alt="" className="filterLogo" />
-          Filter:
-        </label>
+        <section>
+          <label className="filters">
+            <img src={filterIcon} alt="" className="filterLogo" />
+            Filter:
+          </label>
 
-        <select
-          className="select"
-          name="diets"
-          onChange={(e) => handleDietFilterChange(e)}
-        >
-          <option disabled selected>
-            Type of diet!
-          </option>
-          <option value="all diets">All diets</option>
-          {dietTypes.map((diet) => {
-            return <option value={diet.name}>{diet.name}</option>;
-          })}
-        </select>
-        <label className="filters">
-          <img src={sortIcon} alt="" className="sortIcon" />
-          Sort:
-        </label>
-        <select
-          className="select"
-          name="alphabetical"
-          onChange={(e) => handleAlphabeticalSort(e)}
-        >
-          <option disabled selected>
-            Alphabetical
-          </option>
-          <option value="atoz">A to Z</option>
-          <option value="ztoa">Z to A</option>
-        </select>
-        <select
-          className="select"
-          name="numerical"
-          onChange={(e) => handleScoreSort(e)}
-        >
-          <option disabled selected>
-            Score
-          </option>
-          <option value="asc">From Min to Max</option>
-          <option value="desc">From Max to Min</option>
-        </select>
+          <select
+            className="select"
+            name="diets"
+            onChange={(e) => handleDietFilterChange(e)}
+          >
+            <option disabled selected>
+              Type of diet!
+            </option>
+            <option value="all diets">All diets</option>
+            {dietTypes.map((diet) => {
+              return <option value={diet.name}>{diet.name}</option>;
+            })}
+          </select>
+        </section>
+        <section>
+          <label className="filters">
+            <img src={sortIcon} alt="" className="sortIcon" />
+            Sort:
+          </label>
+          <select
+            className="select"
+            name="alphabetical"
+            onChange={(e) => handleAlphabeticalSort(e)}
+          >
+            <option disabled selected>
+              Alphabetical
+            </option>
+            <option value="atoz">A to Z</option>
+            <option value="ztoa">Z to A</option>
+          </select>
+          <select
+            className="select"
+            name="numerical"
+            onChange={(e) => handleScoreSort(e)}
+          >
+            <option disabled selected>
+              Score
+            </option>
+            <option value="asc">From Min to Max</option>
+            <option value="desc">From Max to Min</option>
+          </select>
+        </section>
       </div>
     </div>
   );

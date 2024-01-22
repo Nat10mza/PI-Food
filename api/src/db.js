@@ -5,8 +5,8 @@ const path = require("path");
 const { PGUSER, PGPASSWORD, PGHOST, PGPORT, PGDATABASE } = process.env;
 
 const sequelize = new Sequelize(
-  `postgresql://${PGUSER}:${PGPASSWORD}@${PGHOST}:${PGPORT}/${PGDATABASE}`,
-  // `postgresql://${PGUSER}:${PGPASSWORD}@localhost:/${PGDATABASE}`,
+  // `postgresql://${PGUSER}:${PGPASSWORD}@${PGHOST}:${PGPORT}/${PGDATABASE}`,
+  `postgresql://${PGUSER}:${PGPASSWORD}@localhost:5432/${PGDATABASE}`,
 
   {
     logging: false, // set to console.log to see the raw SQL queries

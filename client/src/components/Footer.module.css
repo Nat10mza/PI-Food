@@ -1,12 +1,9 @@
 footer {
-  position: fixed;
+  position: absolute;
   left: 0;
-  bottom: 0;
   width: 100%;
   background-color: #dbf1e4;
   color: white;
-
-  border-radius: 15px;
 }
 .FooterAnimation {
   animation: 1.5s 0s 1 slideFromBottom;
@@ -28,7 +25,7 @@ footer {
 
 .leftContainer {
   text-align: left;
-  display: inline-flex;
+
   gap: 1em;
 }
 
@@ -39,6 +36,7 @@ footer {
 
 .conectList {
   display: flex;
+  align-items: center;
 }
 
 ul {
@@ -96,5 +94,20 @@ ul {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h5 {
+    margin-block-end: 0.5em;
+    margin-block-start: 0.5em;
+  }
+  .container,
+  .leftContainer {
+    flex-direction: column;
+    gap: 0;
+  }
+  .container {
+    align-items: start;
   }
 }
